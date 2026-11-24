@@ -652,7 +652,7 @@ $('#secForm').addEventListener('submit', function(e){ e.preventDefault(); var u 
 
 // ---------- conexión y publicación ----------
 function getConn(){ try { return JSON.parse(LS.get(CONN_KEY) || 'null'); } catch(e){ return null; } }
-function fillConn(){ var c = getConn() || {}; $('#cOwner').value = c.owner || 'Cristina2027-cloud'; $('#cRepo').value = c.repo || 'chulas-boutique'; $('#cToken').value = c.token || '';
+function fillConn(){ var c = getConn() || {}; $('#cOwner').value = c.owner || 'softgalamx'; $('#cRepo').value = c.repo || 'softgalamx.github.io'; $('#cToken').value = c.token || '';
   $('#connState').className = c.token ? 'okmsg' : 'note'; $('#connState').textContent = c.token ? 'Conectado a ' + c.owner + '/' + c.repo + '. Ya puedes publicar desde este dispositivo.' : 'Sin conexión configurada en este dispositivo.'; }
 function gh(c, path, opt){ opt = opt || {}; opt.headers = { 'Authorization':'Bearer ' + c.token, 'Accept':'application/vnd.github+json', 'X-GitHub-Api-Version':'2022-11-28' };
   return fetch('https://api.github.com/repos/' + encodeURIComponent(c.owner) + '/' + encodeURIComponent(c.repo) + path, opt); }
