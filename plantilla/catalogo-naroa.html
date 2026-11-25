@@ -238,6 +238,37 @@ footer b{color:#fff}
 .viz i{width:6px;height:4px;border-radius:3px;background:#f1cf8a;opacity:.55;transition:height .5s cubic-bezier(.2,.9,.3,1),opacity .5s}
 .viz i.on{height:26px;opacity:1;transition:height .06s,opacity .06s}
 @media(prefers-reduced-motion:reduce){.waves path,.sheen,.sparks i{animation:none}.sparks i{opacity:.5}}
+/* ---- Portada negra NAROA ---- */
+.splash{position:fixed;inset:0;z-index:100;background:#000;display:grid;place-items:center;transition:opacity .8s ease,visibility .8s}
+.splash img{width:min(78vw,520px);animation:spl 1.4s ease-out both}
+@keyframes spl{from{opacity:0;transform:scale(.92);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+.splash.out{opacity:0;visibility:hidden}
+.stage{border-radius:0!important;margin:0!important;min-height:min(78vh,680px);display:flex!important;flex-direction:column;align-items:center;justify-content:center;padding:70px 16px 90px!important;
+ background:#050405!important;box-shadow:none!important;isolation:isolate}
+.stage::before{z-index:1}
+.aurora{position:absolute;inset:-20%;filter:blur(60px) saturate(1.2);opacity:.85;z-index:0}
+.aurora b{position:absolute;border-radius:50%;mix-blend-mode:screen}
+.aurora b:nth-child(1){width:52vw;height:52vw;left:2%;top:10%;background:radial-gradient(circle,#8e1f33 0,transparent 65%);animation:au1 16s ease-in-out infinite alternate}
+.aurora b:nth-child(2){width:46vw;height:46vw;right:0;top:0;background:radial-gradient(circle,#5a1430 0,transparent 65%);animation:au2 19s ease-in-out infinite alternate}
+.aurora b:nth-child(3){width:40vw;height:40vw;left:30%;bottom:-6%;background:radial-gradient(circle,#b8873a 0,transparent 62%);opacity:.55;animation:au3 14s ease-in-out infinite alternate}
+.aurora b:nth-child(4){width:30vw;height:30vw;right:18%;bottom:10%;background:radial-gradient(circle,#c2566a 0,transparent 62%);opacity:.6;animation:au1 21s ease-in-out infinite alternate-reverse}
+@keyframes au1{to{transform:translate(18vw,8vh) scale(1.2)}}@keyframes au2{to{transform:translate(-16vw,14vh) scale(.85)}}@keyframes au3{to{transform:translate(-14vw,-10vh) scale(1.25)}}
+#stars{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.grain{position:absolute;inset:0;z-index:1;opacity:.08;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E")}
+.stage .waves,.stage .spot,.stage .sheen,.stage .sparks{z-index:1}
+.stage .mlogo{width:min(760px,92vw)!important;margin-bottom:26px!important;filter:drop-shadow(0 6px 30px rgba(0,0,0,.6))}
+.stage .viz{bottom:auto;top:calc(50% + clamp(70px,12vw,120px));position:relative;left:auto;translate:none;margin:6px auto 0}
+.tag2{position:relative;z-index:2;margin:18px 0 0;color:#e9d6c6;font-size:13px;letter-spacing:.32em;text-transform:uppercase;text-align:center;opacity:.85}
+.cue{position:absolute;left:50%;bottom:22px;translate:-50% 0;z-index:2;width:28px;height:44px;border:2px solid rgba(241,207,138,.7);border-radius:16px}
+.cue span{position:absolute;left:50%;top:8px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:#f1cf8a;animation:cue 1.6s ease-in-out infinite}
+@keyframes cue{60%{transform:translateY(14px);opacity:0}}
+@media(prefers-reduced-motion:reduce){.aurora b,.cue span,.splash img{animation:none}}
+.stage{background:radial-gradient(70% 60% at var(--mx,50%) var(--my,45%),#3a0d18 0%,#16070b 45%,#050405 80%)!important;cursor:crosshair}
+.stage .mlogo,.stage .mplay,.stage .viz,.stage .tag2,.stage .cue{cursor:auto}
+.halo{position:absolute;left:50%;top:44%;width:min(900px,120vw);aspect-ratio:2/1;translate:-50% -50%;z-index:1;pointer-events:none;background:radial-gradient(closest-side,rgba(241,207,138,.10),rgba(122,31,43,.10) 55%,transparent);animation:hl 6s ease-in-out infinite}
+@keyframes hl{50%{opacity:.55;transform:scale(1.06)}}
+.stage .hint{position:absolute;right:16px;bottom:18px;z-index:2;color:#bfa98f;font-size:12px;opacity:.8}
+@media(prefers-reduced-motion:reduce){.halo{animation:none}}
 .toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,120px);background:var(--ink);color:#fff;padding:12px 18px;border-radius:999px;font-size:14px;z-index:70;transition:transform .25s}
 .toast.show{transform:translate(-50%,0)}
 :focus-visible{outline:2px solid var(--wine);outline-offset:2px}
@@ -246,6 +277,7 @@ footer b{color:#fff}
 </style>
 </head>
 <body>
+<div class="splash" id="splash" aria-hidden="true"><img src="img/naroa-portada.jpg" alt=""></div>
 <div class="promo" id="promo"><div class="tick"><div class="track" id="track"></div></div><div class="cd" id="cdBox">Promo termina en <b id="cd"></b></div></div>
 <header class="top" id="hdr">
   <a class="brand" href="#inicio" aria-label="NAROA Boutique, inicio"><img class="logo" src="img/marca-naroa.png" alt="NAROA Boutique"></a>
@@ -255,18 +287,16 @@ footer b{color:#fff}
   </div>
 </header>
 
-<section class="hero" id="inicio">
-  <div>
-    <div class="stage" id="stage">
-      <svg class="waves" viewBox="0 0 600 260" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="sat" x1="0" x2="1"><stop offset="0" stop-color="#f3d9c4" stop-opacity="0"/><stop offset=".5" stop-color="#f3d9c4" stop-opacity=".22"/><stop offset="1" stop-color="#f3d9c4" stop-opacity="0"/></linearGradient></defs>
-        <path class="w1" d="M0 170 C120 120 220 220 340 170 S520 120 600 160 L600 260 L0 260Z" fill="url(#sat)"/>
-        <path class="w2" d="M0 200 C140 160 260 250 380 200 S540 170 600 205 L600 260 L0 260Z" fill="url(#sat)"/>
-        <path class="w3" d="M0 90 C150 40 250 140 400 90 S560 60 600 80" fill="none" stroke="#e8c27a" stroke-opacity=".28" stroke-width="1.2"/></svg>
-      <div class="spot" aria-hidden="true"></div><div class="sheen" aria-hidden="true"></div><div class="sparks" id="sparks" aria-hidden="true"></div>
+    <section class="stage" id="stage" aria-label="NAROA Boutique">
+      <canvas id="stars" aria-hidden="true"></canvas><div class="grain" aria-hidden="true"></div>
+      <div class="spot" aria-hidden="true"></div><div class="halo" aria-hidden="true"></div>
       <div class="mlogo" id="mlogo" role="group" aria-label="NAROA Boutique: toca cada letra para escuchar una nota"><img class="mbase" src="img/logo-naroa-base-blanco.png" alt=""><button class="ml" data-note="0" style="left:21.778%;width:11.556%" aria-label="Letra N, nota Do"><img src="img/letra-n-blanco.png" alt=""></button><button class="ml" data-note="1" style="left:33.333%;width:11.333%" aria-label="Letra A, nota Mi"><img src="img/letra-a1-blanco.png" alt=""></button><button class="ml" data-note="2" style="left:44.667%;width:11.444%" aria-label="Letra R, nota Sol"><img src="img/letra-r-blanco.png" alt=""></button><button class="ml" data-note="3" style="left:56.111%;width:10.556%" aria-label="Letra O, nota La"><img src="img/letra-o-blanco.png" alt=""></button><button class="ml" data-note="4" style="left:66.667%;width:11.333%" aria-label="Letra A, nota Do alto"><img src="img/letra-a2-blanco.png" alt=""></button></div>
     <div class="mplay"><button class="playbtn" id="playMel" aria-pressed="false"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><span class="pl">Tocar la melodía de NAROA</span></button><small>o toca cada letra del logo</small></div>
       <div class="viz" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-    </div>
+    <p class="tag2">Mexicali · Colecciones con intención</p><span class="hint">Toca el fondo ✦</span><a class="cue" href="#inicio" aria-label="Ver catálogo"><span></span></a>
+    </section>
+<section class="hero" id="inicio">
+  <div>
     <h1 id="heroTitle">Confianza que se siente y se nota</h1>
     <p>Todo el catálogo de Naroa en un solo lugar: elige tu talla, añade al carrito y manda tu pedido completo por WhatsApp en un toque.</p>
     <div class="stats" id="stats"></div>
@@ -323,6 +353,7 @@ footer b{color:#fff}
 <div class="toast" id="toast"></div>
 
 <script>
+{const sp=document.getElementById('splash');const hide=()=>sp&&sp.classList.add('out');if(matchMedia('(prefers-reduced-motion: reduce)').matches)hide();else setTimeout(hide,1500);sp&&sp.addEventListener('click',hide)}
 {
 /* ===== Datos: se editan desde el panel (admin.html) y viven en data.json ===== */
 const $=s=>document.querySelector(s);
@@ -496,7 +527,7 @@ function tone(i,dur=.9,when=0){const a=ac();if(!a)return;const t=a.currentTime+w
  const dl=a.createDelay();dl.delayTime.value=.18;const fb=a.createGain();fb.gain.value=.28;dl.connect(fb).connect(dl);out.connect(a.destination);out.connect(dl);dl.connect(a.destination);
  [[f,'sine',1],[f*2,'triangle',.18],[f*3.01,'sine',.06]].forEach(([fr,ty,g])=>{const o=a.createOscillator(),gg=a.createGain();o.type=ty;o.frequency.value=fr;gg.gain.value=g;o.connect(gg).connect(out);o.start(t);o.stop(t+dur+.05)})}
 const L=[...document.querySelectorAll('.ml')];
-function bounce(i,quiet){const b=L[i];if(!b)return;const v=document.querySelectorAll('.viz i')[i];if(v&&!quiet){v.classList.add('on');setTimeout(()=>v.classList.remove('on'),140)}const ml=$('#mlogo');if(!quiet){ml.classList.add('glow');clearTimeout(ml._g);ml._g=setTimeout(()=>ml.classList.remove('glow'),400)}b.classList.remove('hit');void b.offsetWidth;b.classList.add('hit');if(RM)return;const box=$('#mlogo').getBoundingClientRect(),r=b.getBoundingClientRect(),cx=r.left-box.left+r.width/2,cy=r.top-box.top+r.height*.3;
+function bounce(i,quiet){const b=L[i];if(!b)return;if(!quiet&&window.__naroaRipple)window.__naroaRipple(i);const v=document.querySelectorAll('.viz i')[i];if(v&&!quiet){v.classList.add('on');setTimeout(()=>v.classList.remove('on'),140)}const ml=$('#mlogo');if(!quiet){ml.classList.add('glow');clearTimeout(ml._g);ml._g=setTimeout(()=>ml.classList.remove('glow'),400)}b.classList.remove('hit');void b.offsetWidth;b.classList.add('hit');if(RM)return;const box=$('#mlogo').getBoundingClientRect(),r=b.getBoundingClientRect(),cx=r.left-box.left+r.width/2,cy=r.top-box.top+r.height*.3;
  if(quiet)return;const n=document.createElement('span');n.className='mnote';n.textContent=['♪','♫','♩','♬','♪'][i];n.style.left=cx+'px';n.style.top=cy+'px';$('#mlogo').appendChild(n);setTimeout(()=>n.remove(),1200);
  for(let k=0;k<6;k++){const s=document.createElement('span');s.className='spark';s.style.left=cx+'px';s.style.top=cy+'px';const ang=Math.random()*Math.PI*2,d=24+Math.random()*30;s.style.setProperty('--dx',Math.cos(ang)*d+'px');s.style.setProperty('--dy',Math.sin(ang)*d+'px');$('#mlogo').appendChild(s);setTimeout(()=>s.remove(),850)}}
 L.forEach((b,i)=>{b.addEventListener('pointerdown',e=>{e.preventDefault();tone(i);bounce(i)});b.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();tone(i);bounce(i)}});b.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse'&&e.buttons===1){tone(i,.6);bounce(i)}})});
@@ -513,11 +544,31 @@ if(!RM&&matchMedia('(hover:hover)').matches){$('#grid').addEventListener('pointe
 
 /* ---- Escenario del logo: destellos, luz que sigue el dedo y ola de letras ---- */
 {const st=$('#stage');if(st){
- $('#sparks').innerHTML=Array.from({length:22},()=>`<i style="left:${(Math.random()*96).toFixed(1)}%;top:${(Math.random()*90).toFixed(1)}%;--z:${(5+Math.random()*9).toFixed(0)}px;--d:${(3+Math.random()*4).toFixed(1)}s;--t:${(-Math.random()*6).toFixed(1)}s"></i>`).join('');
+ if($('#sparks'))$('#sparks').innerHTML=Array.from({length:22},()=>`<i style="left:${(Math.random()*96).toFixed(1)}%;top:${(Math.random()*90).toFixed(1)}%;--z:${(5+Math.random()*9).toFixed(0)}px;--d:${(3+Math.random()*4).toFixed(1)}s;--t:${(-Math.random()*6).toFixed(1)}s"></i>`).join('');
  st.addEventListener('pointermove',e=>{const r=st.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*100,y=(e.clientY-r.top)/r.height*100;st.style.setProperty('--sx',x+'%');st.style.setProperty('--sy',y+'%');st.style.setProperty('--mx',x+'%');st.style.setProperty('--my',y+'%')});
  st.addEventListener('pointerleave',()=>{st.style.setProperty('--sx','50%');st.style.setProperty('--sy','40%')});
  if(!RM){let ph=0;setInterval(()=>{if(document.hidden||$('#playMel').getAttribute('aria-pressed')==='true')return;const r=st.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;ph++;[0,1,2,3,4].forEach((i,k)=>setTimeout(()=>window.__naroaBounce&&window.__naroaBounce(ph%2?4-i:i,true),k*120))},7000)}
 }}
+
+
+/* ---- Portada interactiva: constelación de polvo dorado ---- */
+{const cv=$('#stars'),stg=$('#stage');if(cv&&stg){const cx=cv.getContext('2d');const dpr=Math.min(2,devicePixelRatio||1);let W=0,H=0,P=[],R=[],ptr={x:-999,y:-999,on:false},vis=true;
+ const size=()=>{const r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);const n=Math.max(40,Math.min(140,Math.round(W*H/9000)));P=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:Math.random()*1.6+.6,f:0,g:Math.random()<.2}))};
+ new ResizeObserver(size).observe(cv);size();new IntersectionObserver(es=>vis=es[0].isIntersecting).observe(cv);
+ const loc=e=>{const r=cv.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}};
+ stg.addEventListener('pointermove',e=>{const l=loc(e);ptr={...l,on:true}});stg.addEventListener('pointerleave',()=>ptr.on=false);
+ const ripple=(x,y,col)=>{R.push({x,y,t:0,col:col||'241,207,138'});for(const p of P){const dx=p.x-x,dy=p.y-y,d=Math.hypot(dx,dy)||1;if(d<220){const f=(220-d)/220*4;p.vx+=dx/d*f;p.vy+=dy/d*f;p.f=1}}};
+ stg.addEventListener('pointerdown',e=>{if(e.target.closest('button,a'))return;const l=loc(e);ripple(l.x,l.y)});
+ window.__naroaRipple=i=>{const b=document.querySelectorAll('.ml')[i];if(!b)return;const r=b.getBoundingClientRect(),c=cv.getBoundingClientRect();ripple(r.left-c.left+r.width/2,r.top-c.top+r.height/2,['241,207,138','226,120,140','255,236,214','201,150,80','241,207,138'][i])};
+ const LINK=Math.min(140,W/6);
+ const step=()=>{if(vis&&!document.hidden){cx.clearRect(0,0,W,H);
+  for(const p of P){if(ptr.on){const dx=ptr.x-p.x,dy=ptr.y-p.y,d=Math.hypot(dx,dy);if(d<180&&d>1){p.vx+=dx/d*.04;p.vy+=dy/d*.04}}p.vx*=.985;p.vy*=.985;const sp=Math.hypot(p.vx,p.vy);if(sp<.12){p.vx+=(Math.random()-.5)*.05;p.vy+=(Math.random()-.5)*.05}p.x+=p.vx;p.y+=p.vy;if(p.x<-10)p.x=W+10;if(p.x>W+10)p.x=-10;if(p.y<-10)p.y=H+10;if(p.y>H+10)p.y=-10;p.f*=.96}
+  cx.lineWidth=.7;for(let i=0;i<P.length;i++){const a=P[i];for(let j=i+1;j<P.length;j++){const b=P[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<LINK){cx.strokeStyle=`rgba(241,207,138,${(1-d/LINK)*.22+(a.f+b.f)*.15})`;cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke()}}
+   if(ptr.on){const d=Math.hypot(a.x-ptr.x,a.y-ptr.y);if(d<170){cx.strokeStyle=`rgba(255,226,200,${(1-d/170)*.45})`;cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(ptr.x,ptr.y);cx.stroke()}}}
+  for(const p of P){cx.fillStyle=p.g?`rgba(241,207,138,${.7+p.f*.3})`:`rgba(255,240,228,${.55+p.f*.45})`;cx.beginPath();cx.arc(p.x,p.y,p.r+p.f*2,0,6.28);cx.fill()}
+  R=R.filter(r=>r.t<1);for(const r of R){r.t+=.018;const rad=r.t*Math.max(W,H)*.45;cx.strokeStyle=`rgba(${r.col},${(1-r.t)*.6})`;cx.lineWidth=2*(1-r.t)+.5;cx.beginPath();cx.arc(r.x,r.y,rad,0,6.28);cx.stroke();cx.strokeStyle=`rgba(${r.col},${(1-r.t)*.3})`;cx.beginPath();cx.arc(r.x,r.y,rad*.6,0,6.28);cx.stroke()}
+  if(ptr.on){const g=cx.createRadialGradient(ptr.x,ptr.y,0,ptr.x,ptr.y,60);g.addColorStop(0,'rgba(241,207,138,.18)');g.addColorStop(1,'rgba(241,207,138,0)');cx.fillStyle=g;cx.fillRect(ptr.x-60,ptr.y-60,120,120)}}
+  if(!RM)requestAnimationFrame(step)};requestAnimationFrame(step)}}
 render();moreIO.observe($('#moreBtn'));
 if(location.hash.length>1&&byId[decodeURIComponent(location.hash.slice(1))])openP(decodeURIComponent(location.hash.slice(1)));
 }
