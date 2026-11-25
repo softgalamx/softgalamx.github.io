@@ -1,0 +1,2963 @@
+{
+ "updated": "2026-11-25T00:08:48.605Z",
+ "auth": {
+  "user": "naroa",
+  "salt": "efb9f5ea578d0405",
+  "hash": "91f0310c61372b9fe796d31bac91293dcb858e412067db36630ab97d7dd291bf"
+ },
+ "store": {
+  "id": "t_10ee297f",
+  "slug": "naroa-boutique",
+  "name": "Naroa Boutique",
+  "slogan": "Confianza que se siente y se nota",
+  "notice": "Tallas y existencias se confirman por WhatsApp al enviar tu pedido.",
+  "showNotice": true,
+  "whatsapp": "526864653901",
+  "phone": "686 465 3901",
+  "email": "naroaboutique02@gmail.com",
+  "address": "Av. Venaderos 2094, Fracc. Calafia (esq. L. Montejano), Mexicali, B.C.",
+  "hours": "Lunes a viernes 11:00 a 20:00 · Sábado 10:00 a 19:00",
+  "instagram": "https://www.instagram.com/naroa.boutique/",
+  "facebook": "https://www.facebook.com/profile.php?id=61580283255275",
+  "logo": "img/logo.jpg",
+  "tiktok": "https://www.tiktok.com/@naroa.boutique",
+  "web": "https://naroaboutique.com",
+  "promo": {
+   "text": "Black Friday adelantado: 10% de descuento en toda la mercancía esta semana",
+   "ends": "2026-11-29T23:59:59-08:00",
+   "pct": 10
+  }
+ },
+ "sizeChart": [
+  {
+   "size": "CH",
+   "busto": [
+    84,
+    88
+   ],
+   "cintura": [
+    66,
+    70
+   ],
+   "cadera": [
+    90,
+    94
+   ],
+   "pant": "3 – 5",
+   "us": "2 – 4"
+  },
+  {
+   "size": "M",
+   "busto": [
+    89,
+    94
+   ],
+   "cintura": [
+    71,
+    76
+   ],
+   "cadera": [
+    95,
+    100
+   ],
+   "pant": "7 – 9",
+   "us": "6 – 8"
+  },
+  {
+   "size": "G",
+   "busto": [
+    95,
+    101
+   ],
+   "cintura": [
+    77,
+    83
+   ],
+   "cadera": [
+    101,
+    107
+   ],
+   "pant": "11 – 13",
+   "us": "10 – 12"
+  },
+  {
+   "size": "XG",
+   "busto": [
+    102,
+    109
+   ],
+   "cintura": [
+    84,
+    91
+   ],
+   "cadera": [
+    108,
+    115
+   ],
+   "pant": "15 – 17",
+   "us": "14 – 16"
+  }
+ ],
+ "products": [
+  {
+   "id": "n1",
+   "name": "Vestido Corto con Lentejuela Negro y Dorado",
+   "cat": "Vestidos",
+   "price": 859,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1795232723_1c49ab8aa090.jpeg"
+   ],
+   "colors": "Negro",
+   "collection": "The Holiday Collection",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n2",
+   "name": "Vestido Corte A con Lentejuela y Moño",
+   "cat": "Vestidos",
+   "price": 1299,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1795232635_017c6d6ebdf5.jpeg"
+   ],
+   "colors": "",
+   "collection": "The Holiday Collection",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n3",
+   "name": "Vestido Mini Rojo de Satín con Capa",
+   "cat": "Vestidos",
+   "price": 1439,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1795232321_29df063771a3.jpeg"
+   ],
+   "colors": "Rojo",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n4",
+   "name": "Vestido Mini Negro de Satín con Encaje",
+   "cat": "Vestidos",
+   "price": 1439,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1795232252_3ca0005bd9c9.jpeg"
+   ],
+   "colors": "Negro",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n5",
+   "name": "Vestido Rojo de Lentejuela con Apertura",
+   "cat": "Vestidos",
+   "price": 2200,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1795232032_df5fa3fd36d6.jpeg"
+   ],
+   "colors": "Rojo",
+   "collection": "The Holiday Collection",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n6",
+   "name": "Saco Oversize de Gamuza Café",
+   "cat": "Chaquetas y sacos",
+   "price": 1749,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1795208931_6fd1b2cd5e89.jpeg"
+   ],
+   "colors": "Café",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n7",
+   "name": "Chaqueta Polka Dots Negra",
+   "cat": "Chaquetas y sacos",
+   "price": 1179,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1795208662_7c7b9e5723b9.jpeg"
+   ],
+   "colors": "Negro",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n8",
+   "name": "Chaqueta Polka Dots Blanca",
+   "cat": "Chaquetas y sacos",
+   "price": 1179,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1795208570_bbeb7b3bb5db.jpeg"
+   ],
+   "colors": "Blanco",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n9",
+   "name": "Bomber Jacket Beige",
+   "cat": "Chaquetas y sacos",
+   "price": 1199,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1795208473_39fbd3610b1f.jpeg"
+   ],
+   "colors": "Beige",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n10",
+   "name": "Chaqueta Oversize con Estampado de Vaca",
+   "cat": "Chaquetas y sacos",
+   "price": 1199,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1795208373_9793dd4c0494.jpeg"
+   ],
+   "colors": "Multicolor",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n11",
+   "name": "Pantalón Vinipiel Café",
+   "cat": "Pantalones",
+   "price": 569,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1795207995_c4cc1e9988cc.jpeg"
+   ],
+   "colors": "Café",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n12",
+   "name": "Pantalón Vinipiel Negro",
+   "cat": "Pantalones",
+   "price": 569,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1795207945_805338d76324.jpeg"
+   ],
+   "colors": "Negro",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n13",
+   "name": "Pantalón Vinipiel Burgundy",
+   "cat": "Pantalones",
+   "price": 569,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1795207895_f0573faa4067.jpeg"
+   ],
+   "colors": "Vino",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n14",
+   "name": "Pantalón Acampanado Negro con Brillo",
+   "cat": "Pantalones",
+   "price": 1099,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1795207820_0d8a345c3392.jpeg"
+   ],
+   "colors": "Negro",
+   "collection": "The Holiday Collection",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n15",
+   "name": "Falda Midi Burgundy de Lentejuela",
+   "cat": "Faldas y shorts",
+   "price": 1649,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1795207727_68ba11c3388d.jpeg"
+   ],
+   "colors": "Vino",
+   "collection": "The Holiday Collection",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n16",
+   "name": "Vestido Halter Cowboy Color Café",
+   "cat": "Vestidos",
+   "price": 1449,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1795206027_dbd8db307b49.jpeg"
+   ],
+   "colors": "Café",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n17",
+   "name": "Vestido Escote en V Rojo con Hebras",
+   "cat": "Vestidos",
+   "price": 1499,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1795205864_a3c9541365a9.jpeg"
+   ],
+   "colors": "Rojo",
+   "collection": "The Holiday Collection",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n18",
+   "name": "Vestido Corto con Lentejuela Multicolor",
+   "cat": "Vestidos",
+   "price": 1199,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1795205757_9b2bad96054f.jpeg"
+   ],
+   "colors": "Multicolor",
+   "collection": "The Holiday Collection",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n19",
+   "name": "Vestido Halter Negro con Plumas y Lentejuela",
+   "cat": "Vestidos",
+   "price": 1199,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1795205569_c76325da63c8.jpeg"
+   ],
+   "colors": "Negro",
+   "collection": "The Holiday Collection",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n20",
+   "name": "Vestido de Lentejuela Halter Rojo",
+   "cat": "Vestidos",
+   "price": 849,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1795205498_6508a31e0af9.jpeg"
+   ],
+   "colors": "Rojo",
+   "collection": "The Holiday Collection",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n21",
+   "name": "Vestido Negro Corto con Pedrería en Mangas",
+   "cat": "Vestidos",
+   "price": 1099,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1795205413_9c2ed6366fc4.jpeg"
+   ],
+   "colors": "Negro",
+   "collection": "The Holiday Collection",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n22",
+   "name": "Vestido Midi Blanco con Encaje",
+   "cat": "Vestidos",
+   "price": 1299,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1790190414_18c80852bcc5.jpeg"
+   ],
+   "colors": "Blanco",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n23",
+   "name": "Blusa Asimétrica con Prendedor Mauve",
+   "cat": "Blusas y tops",
+   "price": 789,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1790190075_e94559102250.jpeg"
+   ],
+   "colors": "Rosa",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n24",
+   "name": "Pantalón Tipo Palazzo Burgundy",
+   "cat": "Pantalones",
+   "price": 599,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1790189984_0e7d4cb6f618.jpeg"
+   ],
+   "colors": "Vino",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n25",
+   "name": "Romper Mini Halter Negro",
+   "cat": "Sets y rompers",
+   "price": 1169,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1790189788_76bc6dc92037.jpeg"
+   ],
+   "colors": "Negro",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n26",
+   "name": "Romper Mini Halter Burgundy",
+   "cat": "Sets y rompers",
+   "price": 1169,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1790189719_ecbfb9dac1bc.jpeg"
+   ],
+   "colors": "Vino",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n27",
+   "name": "T-Shirt Hot Girls Like Matcha Verde",
+   "cat": "Blusas y tops",
+   "price": 649,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1790189645_a22c52e5529e.jpeg"
+   ],
+   "colors": "Verde",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n28",
+   "name": "T-Shirt Hot Girls Like Matcha Negra",
+   "cat": "Blusas y tops",
+   "price": 649,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1790189595_6ef5224affa1.jpeg"
+   ],
+   "colors": "Negro",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n29",
+   "name": "T-Shirt Hot Girls Like Matcha Blanca",
+   "cat": "Blusas y tops",
+   "price": 649,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1790189533_1a4b59b93104.jpeg"
+   ],
+   "colors": "Blanco",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n30",
+   "name": "Falda Midi Denim con Cinturón",
+   "cat": "Faldas y shorts",
+   "price": 729,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1790189441_901da15e71f1.jpeg"
+   ],
+   "colors": "",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n31",
+   "name": "Blusa Cuello Alto Lencera Blanca",
+   "cat": "Blusas y tops",
+   "price": 998,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1790189349_f4e745145eaa.jpeg"
+   ],
+   "colors": "Blanco",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n32",
+   "name": "Blusa Cuello Alto Lencera Negra",
+   "cat": "Blusas y tops",
+   "price": 998,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1790189269_680009e1a068.jpeg"
+   ],
+   "colors": "Negro",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n33",
+   "name": "Blusa Cuello Alto Lencera Café",
+   "cat": "Blusas y tops",
+   "price": 998,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1790189198_b0d8f43d3f61.jpeg"
+   ],
+   "colors": "Café",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n34",
+   "name": "Body Mesh Negro con Manga",
+   "cat": "Blusas y tops",
+   "price": 479,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1790189119_e4917e9d3023.jpeg"
+   ],
+   "colors": "Negro",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n35",
+   "name": "Body Basic con Escote Beige",
+   "cat": "Blusas y tops",
+   "price": 979,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1790188975_c297f00318eb.jpeg"
+   ],
+   "colors": "Beige",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n36",
+   "name": "Body Basic Rojo",
+   "cat": "Blusas y tops",
+   "price": 459,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1790188884_34bfae0533c6.jpeg"
+   ],
+   "colors": "Rojo",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n37",
+   "name": "Body Basic Negro",
+   "cat": "Blusas y tops",
+   "price": 459,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1790188854_e8ac16e5adba.jpeg"
+   ],
+   "colors": "Negro",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n38",
+   "name": "Body Basic Blanco",
+   "cat": "Blusas y tops",
+   "price": 459,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1790188804_3b633f7086d0.jpeg"
+   ],
+   "colors": "Blanco",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n39",
+   "name": "Vestido Mini Halter Polka Dots Negro",
+   "cat": "Vestidos",
+   "price": 869,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1790104020_33d910df090d.jpeg"
+   ],
+   "colors": "Negro",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n40",
+   "name": "Chaqueta Vinipiel Color Chocolate",
+   "cat": "Chaquetas y sacos",
+   "price": 859,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1790103949_d1cd9eccc870.jpeg"
+   ],
+   "colors": "Café",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n41",
+   "name": "Mini Short con Rayas Burgundy",
+   "cat": "Faldas y shorts",
+   "price": 796,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1789760296_dc886a20a75d.jpeg"
+   ],
+   "colors": "Multicolor",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n42",
+   "name": "Mini Short con Rayas Navy Blue",
+   "cat": "Faldas y shorts",
+   "price": null,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1789760228_495539fc476e.jpeg"
+   ],
+   "colors": "Multicolor",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n43",
+   "name": "Body con Mangas Color Negro",
+   "cat": "Blusas y tops",
+   "price": 359,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1789760164_db8f8e61aebf.jpeg"
+   ],
+   "colors": "Negro",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n44",
+   "name": "Body con Mangas Color Camel",
+   "cat": "Blusas y tops",
+   "price": 359,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1789760106_93638411b264.jpeg"
+   ],
+   "colors": "Beige",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n45",
+   "name": "Falda Midi Negra Polka Dots",
+   "cat": "Faldas y shorts",
+   "price": 1349,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1789760017_62b6f517b09d.jpeg"
+   ],
+   "colors": "Negro",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n46",
+   "name": "Vestido Midi Polka Dots Rojo",
+   "cat": "Vestidos",
+   "price": 455,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1789759925_9f87b508a7e1.jpeg"
+   ],
+   "colors": "Rojo",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n47",
+   "name": "Blusa Blanca Flowy con Mangas",
+   "cat": "Blusas y tops",
+   "price": 939,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1788982297_8af203198b50.jpeg"
+   ],
+   "colors": "Blanco",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n48",
+   "name": "Vestido Lencero de Satín Color Chocolate",
+   "cat": "Vestidos",
+   "price": 1399,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1788903751_ca9ec9cc0809.jpeg"
+   ],
+   "colors": "Café",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n49",
+   "name": "Vestido Maxi Flowy Café",
+   "cat": "Vestidos",
+   "price": 1399,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1788902997_07707bed0846.jpeg"
+   ],
+   "colors": "Café",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n50",
+   "name": "Vestido Maxi Flowy Violeta",
+   "cat": "Vestidos",
+   "price": 1629,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1788902954_a71d870305e0.jpeg"
+   ],
+   "colors": "Morado",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n51",
+   "name": "Vestido Largo Lencero de Satín con Apertura",
+   "cat": "Vestidos",
+   "price": 1189,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1788834076_467d5b54ef17.jpeg"
+   ],
+   "colors": "",
+   "collection": "Night Out",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n52",
+   "name": "Set de Encaje Color Arena",
+   "cat": "Sets y rompers",
+   "price": 399,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1788567011_242e09f7caaa.jpeg"
+   ],
+   "colors": "Beige",
+   "collection": "Boutique",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n53",
+   "name": "Pantalón Tipo Palazzo Verde Olivo",
+   "cat": "Pantalones",
+   "price": 599,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1788482097_b0bb4b2691b5.jpeg"
+   ],
+   "colors": "Verde",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n54",
+   "name": "Vestido Oversize Electric Blue",
+   "cat": "Vestidos",
+   "price": 999,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1788481918_e062e283a617.jpeg"
+   ],
+   "colors": "Azul",
+   "collection": "Spring | Summer 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n55",
+   "name": "Set de Gamuza Color Camel",
+   "cat": "Sets y rompers",
+   "price": 799,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1788481856_e68b87f339c9.jpeg"
+   ],
+   "colors": "Beige",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n56",
+   "name": "Blusa Halter de Satín Color Rojo",
+   "cat": "Blusas y tops",
+   "price": 1029,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1788481769_efa70284a345.jpeg"
+   ],
+   "colors": "Rojo",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n57",
+   "name": "Pantalón de Pinzas y Tiro Alto Café Chocolate",
+   "cat": "Pantalones",
+   "price": 1319,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1788481644_7d99b5d25bfa.jpeg"
+   ],
+   "colors": "Café",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n58",
+   "name": "Pantalón de Pinzas y Tiro Alto Gris",
+   "cat": "Pantalones",
+   "price": 1319,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1788481583_d2778034cd9c.jpeg"
+   ],
+   "colors": "Gris",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n59",
+   "name": "Blusa Cuello V Basic Blanca",
+   "cat": "Blusas y tops",
+   "price": 699,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1788479880_bdc84fb6bd92.jpeg"
+   ],
+   "colors": "Blanco",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n60",
+   "name": "Blusa Cuello V Basic Negra",
+   "cat": "Blusas y tops",
+   "price": 699,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1788479812_d9d4831a6194.jpeg"
+   ],
+   "colors": "Negro",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n61",
+   "name": "Blusa Cuello V Basic Capuccino",
+   "cat": "Blusas y tops",
+   "price": 699,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1788479747_7c14b91d1440.jpeg"
+   ],
+   "colors": "Café",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n62",
+   "name": "Blusa Asimétrica Color Capuccino",
+   "cat": "Blusas y tops",
+   "price": 699,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1788479655_8ffb2261218a.jpeg"
+   ],
+   "colors": "Café",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n63",
+   "name": "Blusa Blanca Asimétrica",
+   "cat": "Blusas y tops",
+   "price": 699,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1788479586_4dbaad1709d0.jpeg"
+   ],
+   "colors": "Blanco",
+   "collection": "Spring | Summer 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n64",
+   "name": "Vestido Halter Satín Negro",
+   "cat": "Vestidos",
+   "price": 800,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1788376143_2173430ec211.jpeg"
+   ],
+   "colors": "Negro",
+   "collection": "Night Out",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n65",
+   "name": "Vestido Midi Tejido Verde Oliva",
+   "cat": "Vestidos",
+   "price": 1339,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1788375996_5605c9d52e21.jpeg"
+   ],
+   "colors": "Verde",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n66",
+   "name": "Blusa Oversize con Mangas Burgundy",
+   "cat": "Blusas y tops",
+   "price": 1589,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1788375677_ceb798e8705a.jpeg"
+   ],
+   "colors": "Vino",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n67",
+   "name": "T-Shirt Negra con Detalles de Perlas",
+   "cat": "Blusas y tops",
+   "price": 749,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1788375617_e24db4ddd856.jpeg"
+   ],
+   "colors": "Negro",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n68",
+   "name": "Blusa Halter Satín Café",
+   "cat": "Blusas y tops",
+   "price": 659,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1788375545_0edef506d804.jpeg"
+   ],
+   "colors": "Café",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n69",
+   "name": "Blusa Halter Satín Negra",
+   "cat": "Blusas y tops",
+   "price": 659,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1788375500_44235da924dc.jpeg"
+   ],
+   "colors": "Negro",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n70",
+   "name": "Blusa Halter Satín Champagne",
+   "cat": "Blusas y tops",
+   "price": 659,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1788375452_f55324e24b0b.jpeg"
+   ],
+   "colors": "Beige",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n71",
+   "name": "Blusa Halter Color Chocolate",
+   "cat": "Blusas y tops",
+   "price": 749,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1788375370_07c334b769f1.jpeg"
+   ],
+   "colors": "Café",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n72",
+   "name": "Set Satinado con Encaje Color Chocolate",
+   "cat": "Sets y rompers",
+   "price": 1689,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1788375135_a9ece800c9f6.jpeg"
+   ],
+   "colors": "Café",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n73",
+   "name": "Vestido Corto Azul con Hebras",
+   "cat": "Vestidos",
+   "price": 599,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1787081987_1b9a44e42b5a.jpeg"
+   ],
+   "colors": "Azul",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n74",
+   "name": "Vestido Midi Tejido Café",
+   "cat": "Vestidos",
+   "price": 1139,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1787081915_5e2bb90fc07b.jpeg"
+   ],
+   "colors": "Café",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n75",
+   "name": "Vestido Midi Amarillo con Estampado",
+   "cat": "Vestidos",
+   "price": 1319,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1787081865_4c4ac0649c4e.jpeg"
+   ],
+   "colors": "Amarillo",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n76",
+   "name": "Pantalón Corte Capri Negro",
+   "cat": "Pantalones",
+   "price": 1049,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1786128026_b4dbc1bbeb75.jpeg"
+   ],
+   "colors": "Negro",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n77",
+   "name": "Vestido Satín Rose Gold Manga Larga",
+   "cat": "Vestidos",
+   "price": 1106,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1786127936_08d9d6fffde4.jpeg"
+   ],
+   "colors": "Rosa",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n78",
+   "name": "Blusa Mesh Polka Dots",
+   "cat": "Blusas y tops",
+   "price": 836,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1786127863_d5eae5423b03.jpeg"
+   ],
+   "colors": "",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n79",
+   "name": "Vestido Midi Satinado Animal Print",
+   "cat": "Vestidos",
+   "price": 1619,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1785614599_32c12c23debd.jpeg"
+   ],
+   "colors": "Multicolor",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n80",
+   "name": "Vestido Camisero Rayas con Nudo",
+   "cat": "Vestidos",
+   "price": 1498,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1785614501_13795e840c4b.jpeg"
+   ],
+   "colors": "Multicolor",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n81",
+   "name": "Bomber Jacket Polka Dots Amarilla",
+   "cat": "Chaquetas y sacos",
+   "price": 1179,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1785614334_34bc7c8faa1b.jpeg"
+   ],
+   "colors": "Amarillo",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n82",
+   "name": "Bomber Jacket Polka Dots Negra",
+   "cat": "Chaquetas y sacos",
+   "price": 1179,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1785614253_92933e4cc0f7.jpeg"
+   ],
+   "colors": "Negro",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n83",
+   "name": "Vestido Mini Denim Chocolate Cowboy",
+   "cat": "Vestidos",
+   "price": 1489,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1785189911_f807d890f0f8.jpeg"
+   ],
+   "colors": "Café",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n84",
+   "name": "Vestido Maxi Flow Floral",
+   "cat": "Vestidos",
+   "price": 1909,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1785189854_dc6e1543d988.jpeg"
+   ],
+   "colors": "Multicolor",
+   "collection": "Night Out",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n85",
+   "name": "Vestido Maxi Chiffon Polka Dots con Encaje",
+   "cat": "Vestidos",
+   "price": 1669,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1785189799_7fd60387d7c7.jpeg"
+   ],
+   "colors": "",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n86",
+   "name": "Vestido Mini Halter Polka Dots",
+   "cat": "Vestidos",
+   "price": 1176,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1784918393_39f60fcb235c.jpeg"
+   ],
+   "colors": "",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n87",
+   "name": "Blusa Satinada con Encaje Color Beige",
+   "cat": "Blusas y tops",
+   "price": 1064,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1784918303_e4bdcf13286c.jpeg"
+   ],
+   "colors": "Beige",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n88",
+   "name": "Blusa Satinada Butter Yellow con Escote Drapeado",
+   "cat": "Blusas y tops",
+   "price": 1274,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1784918214_2f6ec3859f02.jpeg"
+   ],
+   "colors": "Beige",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n89",
+   "name": "Pantalón Barrel Denim Polka Dots Chocolate",
+   "cat": "Pantalones",
+   "price": 2199,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1784917420_5f0a22b2453a.jpeg"
+   ],
+   "colors": "Café",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n90",
+   "name": "Pantalón Barrel Denim Beige Polka Dots",
+   "cat": "Pantalones",
+   "price": 499,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1784917385_fccc2e7015ce.jpeg"
+   ],
+   "colors": "Beige",
+   "collection": "Boutique",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n91",
+   "name": "Vestido Maxi Esmeralda",
+   "cat": "Vestidos",
+   "price": 1049,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1784755034_b3fd86ddf7e7.jpeg"
+   ],
+   "colors": "Verde",
+   "collection": "Night Out",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n92",
+   "name": "Vestido Maxi Champagne Satinado",
+   "cat": "Vestidos",
+   "price": 1819,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1784754869_1c86fb7af238.jpeg"
+   ],
+   "colors": "Beige",
+   "collection": "Night Out",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n93",
+   "name": "Enterizo con Tirantes Color Beige",
+   "cat": "Naroa Active",
+   "price": 425,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1784754045_69fc91e32a32.jpeg"
+   ],
+   "colors": "Beige",
+   "collection": "Naroa Active",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n94",
+   "name": "Enterizo con Tirantes Color Gris",
+   "cat": "Naroa Active",
+   "price": 425,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1784753935_eb7c24b79ad2.jpeg"
+   ],
+   "colors": "Gris",
+   "collection": "Naroa Active",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n95",
+   "name": "Leggings Naroa Active de Lycra Negro",
+   "cat": "Naroa Active",
+   "price": 519,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1784753824_ee09d7125301.jpeg"
+   ],
+   "colors": "Negro",
+   "collection": "Naroa Active",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n96",
+   "name": "Leggings Naroa Active High Waist Beige",
+   "cat": "Naroa Active",
+   "price": 519,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1784753773_3cd1e9718be1.jpeg"
+   ],
+   "colors": "Beige",
+   "collection": "Naroa Active",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n97",
+   "name": "Top Deportivo Color Beige",
+   "cat": "Naroa Active",
+   "price": 469,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1784753682_f004ceb7de55.jpeg"
+   ],
+   "colors": "Beige",
+   "collection": "Naroa Active",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n98",
+   "name": "Top Deportivo Color Azul",
+   "cat": "Naroa Active",
+   "price": 469,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1784753583_75501bd0d144.jpeg"
+   ],
+   "colors": "Azul",
+   "collection": "Naroa Active",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n99",
+   "name": "Top Deportivo Color Negro",
+   "cat": "Naroa Active",
+   "price": 469,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1784753449_9a94af4ba047.jpeg"
+   ],
+   "colors": "Negro",
+   "collection": "Naroa Active",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n100",
+   "name": "Short Deportivo Tiro Alto Azul",
+   "cat": "Naroa Active",
+   "price": 399,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1784753362_c36de12f437d.webp"
+   ],
+   "colors": "Azul",
+   "collection": "Naroa Active",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n101",
+   "name": "Short Deportivo Tiro Alto Beige",
+   "cat": "Naroa Active",
+   "price": 399,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1784753303_02b990a0cbf8.webp"
+   ],
+   "colors": "Beige",
+   "collection": "Naroa Active",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n102",
+   "name": "Short Deportivo Tiro Alto Negro",
+   "cat": "Naroa Active",
+   "price": 399,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1784753184_457b760ae164.webp"
+   ],
+   "colors": "Negro",
+   "collection": "Naroa Active",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n103",
+   "name": "Vestido Midi Drapeado Ivory",
+   "cat": "Vestidos",
+   "price": 1199,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1784682300_7ed6701fb47c.jpg"
+   ],
+   "colors": "Blanco",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n104",
+   "name": "Set de Falda y Blusa Cruzada Navy Blue",
+   "cat": "Sets y rompers",
+   "price": 1729,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1784681989_5ddc520966c8.webp"
+   ],
+   "colors": "Azul",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n105",
+   "name": "Vestido Halter de Satín Rosa Palo",
+   "cat": "Vestidos",
+   "price": 1389,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1784663968_8f6bc7f2b80f.webp"
+   ],
+   "colors": "Rosa",
+   "collection": "Night Out",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n106",
+   "name": "Vestido de Noche Plateado de Satín con Brillantes",
+   "cat": "Vestidos",
+   "price": 2199,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1783722518_a0379394ebba.jpeg"
+   ],
+   "colors": "Plateado",
+   "collection": "Night Out",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n107",
+   "name": "Vestido de Playa Midi Tejido Beige",
+   "cat": "Vestidos",
+   "price": 1792,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1783722317_1b3d8a435ef6.jpeg"
+   ],
+   "colors": "Beige",
+   "collection": "Spring | Summer 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n108",
+   "name": "Vestido Largo Ajustado Borgoña",
+   "cat": "Vestidos",
+   "price": 789,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1783449278_dee14964416a.jpeg"
+   ],
+   "colors": "Vino",
+   "collection": "Night Out",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n109",
+   "name": "Blusa Beige Asimétrica con Detalle Dorado",
+   "cat": "Blusas y tops",
+   "price": 789,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1783210917_ae4769fde110.png"
+   ],
+   "colors": "Beige",
+   "collection": "Boutique",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n110",
+   "name": "Monoshort Azul y Blanco Estampado Floral",
+   "cat": "Sets y rompers",
+   "price": 1729,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1783210898_08763bb1664b.jpeg"
+   ],
+   "colors": "Azul",
+   "collection": "Boutique",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n111",
+   "name": "Vestido Halter Verde Estampado",
+   "cat": "Vestidos",
+   "price": 1189,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1783210625_d4d8830b2f78.jpeg"
+   ],
+   "colors": "Verde",
+   "collection": "Night Out",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n112",
+   "name": "Falda Midi Estampada con Encaje",
+   "cat": "Faldas y shorts",
+   "price": 1289,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1783210507_240061bfd695.jpeg"
+   ],
+   "colors": "Multicolor",
+   "collection": "Spring | Summer 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n113",
+   "name": "Vestido Midi Halter de Satín Amarillo",
+   "cat": "Vestidos",
+   "price": 1129,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1783210160_f7bd5d1fdaf4.jpeg"
+   ],
+   "colors": "Amarillo",
+   "collection": "Night Out",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n114",
+   "name": "Romper Café con Mangas y Cinto",
+   "cat": "Sets y rompers",
+   "price": 599,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1783111501_cef06076dde6.jpeg"
+   ],
+   "colors": "Café",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n115",
+   "name": "Chaleco Blanco con Botones Dorados",
+   "cat": "Chaquetas y sacos",
+   "price": 859,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1782936137_974fa1166743.jpeg"
+   ],
+   "colors": "Blanco",
+   "collection": "Boutique",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n116",
+   "name": "Set Tipo Sastre Beige",
+   "cat": "Sets y rompers",
+   "price": 1359,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1782938636_40df4d43ed35.jpeg"
+   ],
+   "colors": "Beige",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n117",
+   "name": "Vestido Largo de Satín Negro con Detalle en la Cintura",
+   "cat": "Vestidos",
+   "price": 824,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1782935508_44cd29eae27d.png"
+   ],
+   "colors": "Negro",
+   "collection": "Night Out",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n118",
+   "name": "Vestido Corto Rosa con Flores",
+   "cat": "Vestidos",
+   "price": 599,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1782938558_a104cbb8c712.jpeg"
+   ],
+   "colors": "Rosa",
+   "collection": "Boutique",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n119",
+   "name": "Pantalón Blanco",
+   "cat": "Pantalones",
+   "price": 599,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1782866071_4406601bd48d.jpeg"
+   ],
+   "colors": "Blanco",
+   "collection": "Spring | Summer 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n120",
+   "name": "Saco Blanco con Botones Dorados",
+   "cat": "Chaquetas y sacos",
+   "price": 999,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1782866007_747abb3c650b.jpeg"
+   ],
+   "colors": "Blanco",
+   "collection": "Spring | Summer 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n121",
+   "name": "Set Satín Beige",
+   "cat": "Sets y rompers",
+   "price": 1298,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1782865743_400f9ee23fa2.jpeg"
+   ],
+   "colors": "Beige",
+   "collection": "Spring | Summer 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n122",
+   "name": "Set Pantalón y Saco Wine",
+   "cat": "Sets y rompers",
+   "price": 1899,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1782865113_20cfec503523.jpeg"
+   ],
+   "colors": "Vino",
+   "collection": "Spring | Summer 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n123",
+   "name": "Vestido Halter Negro",
+   "cat": "Vestidos",
+   "price": 1189,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1782864788_379a8479ed33.jpeg"
+   ],
+   "colors": "Negro",
+   "collection": "Night Out",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n124",
+   "name": "Vestido Satinado Escotado Negro",
+   "cat": "Vestidos",
+   "price": 1749,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1782864564_17caf710d492.jpeg"
+   ],
+   "colors": "Negro",
+   "collection": "Night Out",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n125",
+   "name": "Vestido con Pedrería Blanco",
+   "cat": "Vestidos",
+   "price": 1549,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1782938600_ed8a80e7d048.jpeg"
+   ],
+   "colors": "Blanco",
+   "collection": "Spring | Summer 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n126",
+   "name": "Vestido Midi Satinado Amarillo",
+   "cat": "Vestidos",
+   "price": 990,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1782862994_9932014959f1.jpeg"
+   ],
+   "colors": "Amarillo",
+   "collection": "Night Out",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n127",
+   "name": "Vestido Azul Marino de Encaje",
+   "cat": "Vestidos",
+   "price": 1499,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1782862866_af457f80c191.jpeg"
+   ],
+   "colors": "Azul",
+   "collection": "Night Out",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n128",
+   "name": "Vestido Satinado Café",
+   "cat": "Vestidos",
+   "price": 1649,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1782862594_ecc36258d468.jpeg"
+   ],
+   "colors": "Café",
+   "collection": "Night Out",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n129",
+   "name": "Vestido Largo Beige de Satín",
+   "cat": "Vestidos",
+   "price": 1279,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1782768035_3077cfbd956a.webp"
+   ],
+   "colors": "Beige",
+   "collection": "Spring | Summer 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n130",
+   "name": "Vestido Corto Estampado Amarillo",
+   "cat": "Vestidos",
+   "price": 929,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1782766963_be487563e846.webp"
+   ],
+   "colors": "Multicolor",
+   "collection": "Spring | Summer 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n131",
+   "name": "Vestido Ajustado Midi Negro",
+   "cat": "Vestidos",
+   "price": 1629,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1783722135_558ba67ff058.jpeg"
+   ],
+   "colors": "Negro",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n132",
+   "name": "Vestido Lencero Corto Beige",
+   "cat": "Vestidos",
+   "price": 1899,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1782766501_9c7d0eeadc8a.webp"
+   ],
+   "colors": "Beige",
+   "collection": "Spring | Summer 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n133",
+   "name": "Vestido Midi Beige con Botones",
+   "cat": "Vestidos",
+   "price": 1539,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1782328752_acefaa3ee112.jpg"
+   ],
+   "colors": "Beige",
+   "collection": "Spring | Summer 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n134",
+   "name": "Vestido Largo de Satín con Estampado y Encaje",
+   "cat": "Vestidos",
+   "price": 1329,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1783722587_ab9786bc9c76.jpeg"
+   ],
+   "colors": "Multicolor",
+   "collection": "Otoño 2026",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n135",
+   "name": "Blusa Roja Manga Abullonada",
+   "cat": "Blusas y tops",
+   "price": 950,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1782241683_049410014bed.webp"
+   ],
+   "colors": "Rojo",
+   "collection": "Boutique",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n136",
+   "name": "Blusa Verde Manga Larga",
+   "cat": "Blusas y tops",
+   "price": 494,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1781920599_380900da3a19.jpeg"
+   ],
+   "colors": "Verde",
+   "collection": "Boutique",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n137",
+   "name": "Falda Corta Polka Dots Beige",
+   "cat": "Faldas y shorts",
+   "price": 1089,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1781920016_f3fb042757fd.jpeg"
+   ],
+   "colors": "Beige",
+   "collection": "Boutique",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n138",
+   "name": "Set Azul de Short y Blusa",
+   "cat": "Sets y rompers",
+   "price": 584,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1781919623_ddf64f44c69b.jpeg"
+   ],
+   "colors": "Azul",
+   "collection": "Boutique",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n139",
+   "name": "Vestido Halter Escotado Café Corto",
+   "cat": "Vestidos",
+   "price": 915,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1782242821_7fb023edd473.webp"
+   ],
+   "colors": "Café",
+   "collection": "Boutique",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n140",
+   "name": "Vestido Corto Negro con Mangas y Pedrería",
+   "cat": "Vestidos",
+   "price": 449,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1781815699_c335b7198415.webp"
+   ],
+   "colors": "Negro",
+   "collection": "Boutique",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n141",
+   "name": "Vestido Corto Mesh Negro",
+   "cat": "Vestidos",
+   "price": 1399,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1782243927_4c52cc3dbaa9.webp"
+   ],
+   "colors": "Negro",
+   "collection": "Boutique",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n142",
+   "name": "Vestido Midi Floral Rojo con Encaje",
+   "cat": "Vestidos",
+   "price": 1208,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1781815081_2b152f79cc37.jpg"
+   ],
+   "colors": "Multicolor",
+   "collection": "Boutique",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "n143",
+   "name": "Vestido Largo Ocre con Mariposas",
+   "cat": "Vestidos",
+   "price": 1269,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "https://naroaboutique.com/images/products/1782244260_e8e30ad049c4.webp"
+   ],
+   "colors": "Café",
+   "collection": "Night Out",
+   "desc": "",
+   "active": true,
+   "stock": {}
+  }
+ ]
+}

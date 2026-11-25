@@ -14,6 +14,7 @@ Cada boutique tiene su propia carpeta y su propia URL basada en su nombre:
 | `tiendas.json` | Registro de boutiques: `id` interno único, `slug` (parte de la URL), `nombre`, `baseUrl`. |
 | `plantilla/catalogo.html` | Plantilla del catálogo. `__URL__` se reemplaza por la URL de cada boutique. |
 | `plantilla/admin.html` | Plantilla del panel. |
+| `plantilla/catalogo-naroa.html` | Diseño propio de Naroa Boutique (se elige con `"plantilla"` en `tiendas.json`). |
 | `<slug>/data.json` | Datos de la boutique: tienda (`store.id`, `store.slug`), acceso y prendas. Lo escribe el panel. |
 | `<slug>/img/` | Fotos y logotipo de la boutique. |
 | `tools/slug.mjs` | Convierte un nombre en URL: quita acentos y símbolos, evita carpetas reservadas y nombres repetidos. |

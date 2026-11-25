@@ -29,7 +29,8 @@ function generarArchivos(reg, t) {
   const dir = join(RAIZ, t.slug);
   // t.url permite que una boutique tenga su propio dominio (ej. Netlify publica la carpeta en la raíz).
   const url = t.url || ((reg.baseUrl || '') + t.slug + '/');
-  const catalogo = readFileSync(join(RAIZ, 'plantilla/catalogo.html'), 'utf8').replaceAll('__URL__', url);
+  // t.plantilla permite que una boutique use un diseño de catálogo propio (ej. "catalogo-naroa.html").
+  const catalogo = readFileSync(join(RAIZ, 'plantilla', t.plantilla || 'catalogo.html'), 'utf8').replaceAll('__URL__', url);
   writeFileSync(join(dir, 'index.html'), catalogo);
   writeFileSync(join(dir, 'admin.html'), readFileSync(join(RAIZ, 'plantilla/admin.html'), 'utf8'));
   // El id y el slug de data.json siempre deben coincidir con el registro.
