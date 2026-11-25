@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Panel · Chula's Boutique</title>
+<title>Panel de administración</title>
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -490,7 +490,7 @@ function resize(file, max){ return new Promise(function(res, rej){
 function saveDraft(){ dirty = true; LS.set(DRAFT_KEY, JSON.stringify({ baseUpdated: base.updated, data: data, pending: pending })); updatePill(); }
 function clearDraft(){ LS.set(DRAFT_KEY, null); dirty = false; updatePill(); }
 function updatePill(){ var p = $('#chgPill'); if (dirty) { p.className = 'pill-chg'; p.textContent = 'Cambios sin publicar'; } else { p.className = 'pill-ok'; p.textContent = 'Todo publicado'; } }
-function applyLogo(){ var l = src(data.store.logo) || 'img/logo.jpg'; var v = (l.indexOf('data:') === 0) ? '' : '?v=' + encodeURIComponent(data.updated || ''); $$('img[data-logo]').forEach(function(i){ i.src = l + v; }); $('#logoPrev').src = l + v; $('#sideName').textContent = data.store.name; var mn = $('#mobName'); if (mn) mn.textContent = data.store.name; }
+function applyLogo(){ if (data.store && data.store.name) document.title = 'Panel · ' + data.store.name; var l = src(data.store.logo) || 'img/logo.jpg'; var v = (l.indexOf('data:') === 0) ? '' : '?v=' + encodeURIComponent(data.updated || ''); $$('img[data-logo]').forEach(function(i){ i.src = l + v; }); $('#logoPrev').src = l + v; $('#sideName').textContent = data.store.name; var mn = $('#mobName'); if (mn) mn.textContent = data.store.name; }
 
 fetch('data.json?v=' + Date.now(), { cache: 'no-store' }).then(function(r){ if (!r.ok) throw 0; return r.json(); }).then(function(d){
   base = d; data = clone(d);
@@ -535,7 +535,7 @@ function render(){
   var hr = new Date().getHours(), sal = hr < 12 ? 'Buenos días' : hr < 19 ? 'Buenas tardes' : 'Buenas noches';
   $('#hDate').textContent = new Date().toLocaleDateString('es-MX', { weekday:'long', day:'numeric', month:'long' });
   $('#hHello').innerHTML = sal + ', <i>' + esc(cap(data.auth.user)) + '</i>';
-  $('#hName').textContent = 'Bienvenida al panel de ' + data.store.name;
+  $('#hName').textContent = 'Bienvenida al panel de ' + data.store.name; document.title = 'Panel · ' + data.store.name;
   $('#hMini').innerHTML = '<span><b>' + live + '</b>en catálogo</span><span><b>' + P.filter(isOut).length + '</b>agotadas</span><span><b>' + (P.length - on) + '</b>suspendidas</span>';
   var q = $('#q').value.trim().toLowerCase();
   var list = P.filter(function(p){ return (filter === 'all' || (filter === 'on' ? p.active !== false : filter === 'out' ? isOut(p) : p.active === false)) && (!q || (p.name + ' ' + p.cat).toLowerCase().indexOf(q) > -1); });
