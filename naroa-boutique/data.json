@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T00:08:48.605Z",
+ "updated": "2026-11-25T01:09:23.218319Z",
  "auth": {
   "user": "naroa",
   "salt": "efb9f5ea578d0405",
@@ -99,6 +99,346 @@
   }
  ],
  "products": [
+  {
+   "id": "nv1",
+   "name": "Vestido Mini Negro Tipo Corsé con Drapeado",
+   "cat": "Vestidos",
+   "price": null,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "img/nuevo-01.jpg"
+   ],
+   "colors": "Negro",
+   "collection": "Lo nuevo",
+   "desc": "Corsé con varillas, tirantes anchos y falda drapeada. Para cena o noche especial.",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "nv2",
+   "name": "Vestido Midi Tejido Café con Botones Dorados",
+   "cat": "Vestidos",
+   "price": null,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "img/nuevo-02.jpg"
+   ],
+   "colors": "Café",
+   "collection": "Lo nuevo",
+   "desc": "Tejido acanalado con cuello camisero, botones dorados y abertura al frente.",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "nv3",
+   "name": "Vestido Strapless Negro Fruncido con Brillo",
+   "cat": "Vestidos",
+   "price": null,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "img/nuevo-03.jpg"
+   ],
+   "colors": "Negro",
+   "collection": "Lo nuevo",
+   "desc": "Escote corazón, fruncido de arriba abajo y destellos en toda la tela.",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "nv4",
+   "name": "Vestido Largo Café Cuello Alto con Abertura",
+   "cat": "Vestidos",
+   "price": null,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "img/nuevo-04.jpg"
+   ],
+   "colors": "Café",
+   "collection": "Lo nuevo",
+   "desc": "Manga larga, drapeado lateral con cascada y abertura en la pierna.",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "nv5",
+   "name": "Jumpsuit de Terciopelo Vino con Pedrería",
+   "cat": "Sets y rompers",
+   "price": null,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "img/nuevo-05.jpg"
+   ],
+   "colors": "Vino",
+   "collection": "Lo nuevo",
+   "desc": "Strapless de terciopelo, escote corazón con pedrería y pierna amplia.",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "nv6",
+   "name": "Vestido Mini Blanco Strapless con Lentejuela y Moño",
+   "cat": "Vestidos",
+   "price": null,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "img/nuevo-06.jpg"
+   ],
+   "colors": "Blanco",
+   "collection": "Lo nuevo",
+   "desc": "Torso bordado con lentejuela, moño al frente y falda tableada.",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "nv7",
+   "name": "Look Chamarra Bomber Marfil y Falda Satinada Olivo",
+   "cat": "Sets y rompers",
+   "price": null,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "img/nuevo-07.jpg"
+   ],
+   "colors": "Blanco",
+   "collection": "Lo nuevo",
+   "desc": "Chamarra bomber de vinipiel marfil con falda mini satinada verde olivo con encaje.",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "nv8",
+   "name": "Vestido Mini Negro de Malla Drapeado",
+   "cat": "Vestidos",
+   "price": null,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "img/nuevo-08.jpg"
+   ],
+   "colors": "Negro",
+   "collection": "Lo nuevo",
+   "desc": "Malla con drapeado asimétrico al hombro y fruncido ajustado.",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "nv9",
+   "name": "Vestido Mini Negro Un Hombro con Caída Lateral",
+   "cat": "Vestidos",
+   "price": null,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "img/nuevo-09.jpg"
+   ],
+   "colors": "Negro",
+   "collection": "Lo nuevo",
+   "desc": "Hombro descubierto, fruncido al costado y caída de tela lateral.",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "nv10",
+   "name": "Set Chamarra y Pantalón de Vinipiel Café",
+   "cat": "Sets y rompers",
+   "price": null,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "img/nuevo-10.jpg"
+   ],
+   "colors": "Café",
+   "collection": "Lo nuevo",
+   "desc": "Chamarra corta con bolsas y cuello alto, y pantalón recto a juego.",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "nv11",
+   "name": "Pantalón Palazzo Cruzado Vino con Lazo",
+   "cat": "Pantalones",
+   "price": null,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "img/nuevo-11.jpg"
+   ],
+   "colors": "Vino",
+   "collection": "Lo nuevo",
+   "desc": "Pierna amplia con frente cruzado y lazo a la cintura.",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "nv12",
+   "name": "Blazer Negro con Corsé de Encaje Blanco",
+   "cat": "Chaquetas y sacos",
+   "price": null,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "img/nuevo-12.jpg"
+   ],
+   "colors": "Negro",
+   "collection": "Lo nuevo",
+   "desc": "Blazer de hombros marcados con corsé de encaje blanco al frente.",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "nv13",
+   "name": "Body de Malla Vino Manga Larga",
+   "cat": "Blusas y tops",
+   "price": null,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "img/nuevo-13.jpg"
+   ],
+   "colors": "Vino",
+   "collection": "Lo nuevo",
+   "desc": "Escote cuadrado, fruncido al costado y mangas de malla transparente.",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "nv14",
+   "name": "Body de Malla Negro Manga Larga",
+   "cat": "Blusas y tops",
+   "price": null,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "img/nuevo-14.jpg"
+   ],
+   "colors": "Negro",
+   "collection": "Lo nuevo",
+   "desc": "Escote cuadrado, fruncido al costado y mangas de malla transparente.",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "nv15",
+   "name": "Falda Short Negra de Puntos con Cinturón",
+   "cat": "Faldas y shorts",
+   "price": null,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "img/nuevo-15.jpg"
+   ],
+   "colors": "Negro",
+   "collection": "Lo nuevo",
+   "desc": "Falda short cruzada con puntos blancos y cinturón forrado.",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "nv16",
+   "name": "Pantalón Palazzo Cruzado Arena con Lazo",
+   "cat": "Pantalones",
+   "price": null,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "img/nuevo-16.jpg"
+   ],
+   "colors": "Beige",
+   "collection": "Lo nuevo",
+   "desc": "Pierna amplia con frente cruzado y lazo a la cintura.",
+   "active": true,
+   "stock": {}
+  },
+  {
+   "id": "nv17",
+   "name": "Set Sastre Chocolate de Blazer y Pantalón",
+   "cat": "Sets y rompers",
+   "price": null,
+   "status": "disponible",
+   "sizes": [
+    "CH",
+    "M",
+    "G"
+   ],
+   "photos": [
+    "img/nuevo-17.jpg"
+   ],
+   "colors": "Café",
+   "collection": "Lo nuevo",
+   "desc": "Blazer entallado de un botón y pantalón de pierna amplia con pinzas.",
+   "active": true,
+   "stock": {}
+  },
   {
    "id": "n1",
    "name": "Vestido Corto con Lentejuela Negro y Dorado",
