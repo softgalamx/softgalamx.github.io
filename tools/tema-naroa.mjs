@@ -47,18 +47,36 @@ cambiar("'” agotada: ya no aparecerá en el catálogo'", "'” agotada: se ver
 // Publicación automática desde Netlify: sin llave en cada aparato y al instante al marcar Agotado/Suspender
 cambiar("CUR = acc; SS.set(AUTH_KEY, acc.user);", "CUR = acc; window.__pw = p; try { sessionStorage.setItem('nb_pw', p); } catch (e2) {} SS.set(AUTH_KEY, acc.user);");
 cambiar("$('#logout').addEventListener('click', function(){", "$('#logout').addEventListener('click', function(){ try { sessionStorage.removeItem('nb_pw'); } catch (e2) {}");
-cambiar("$('#pubBtn').addEventListener('click', function(){", `// ---- Modo Netlify (Naroa) ----
+cambiar("$('#pubBtn').addEventListener('click', function(){", `// ---- Modo Netlify (Naroa): guarda directo en Netlify, sin llaves ----
 var NETLIFY = /\\.netlify\\.app$/.test(location.hostname);
 function clave(){ var p = window.__pw; try { p = p || sessionStorage.getItem('nb_pw'); } catch (e2) {}
   if (!p) { p = window.prompt('Escribe tu contraseña del panel para guardar los cambios en el catálogo'); if (p) { window.__pw = p; try { sessionStorage.setItem('nb_pw', p); } catch (e2) {} } } return p || ''; }
-var _getConn = getConn; getConn = function(){ var c = _getConn(); if ((!c || !c.token) && NETLIFY) return { owner:'softgalamx', repo:'softgalamx.github.io', branch:'main', token:'__netlify__' }; return c; };
-var _gh = gh; gh = function(c, path, opt){ if (c.token !== '__netlify__') return _gh(c, path, opt); opt = opt || {};
-  return fetch('/.netlify/functions/gh', { method:'POST', headers:{ 'content-type':'application/json' }, body: JSON.stringify({ path: path, method: opt.method || 'GET', body: opt.body, user: CUR ? CUR.user : '', pass: clave() }) })
-    .then(function(r){ if (r.status === 401) { window.__pw = null; try { sessionStorage.removeItem('nb_pw'); } catch (e2) {} } return r; }); };
-var _fillConn = fillConn; fillConn = function(){ _fillConn(); if (NETLIFY && !(_getConn() || {}).token) { $('#connState').className = 'okmsg'; $('#connState').textContent = 'Publicación automática activada: los cambios se guardan en el catálogo con tu usuario y contraseña. No necesitas llave.'; } };
+function olvidarClave(){ window.__pw = null; try { sessionStorage.removeItem('nb_pw'); } catch (e2) {} }
+function guardarNube(payload){ payload.user = CUR ? CUR.user : ''; payload.pass = clave();
+  return fetch('/.netlify/functions/guardar', { method:'POST', headers:{ 'content-type':'application/json' }, body: JSON.stringify(payload) })
+    .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ if (r.status === 401) olvidarClave(); if (!r.ok) throw new Error(j.message || ('error ' + r.status)); return j; }); }); }
+var _fillConn = fillConn; fillConn = function(){ _fillConn(); if (NETLIFY) { $('#connState').className = 'okmsg'; $('#connState').textContent = 'Publicación automática activada: los cambios se guardan al instante en el catálogo. No necesitas ninguna llave.'; } };
 var _modal = modal; modal = function(t, x, a){ if (window.__quietPub) { if (/^Publicando/.test(t)) { toast('Actualizando catálogo…'); return; } if (/^¡Publicado/.test(t)) { window.__quietPub = false; toast('Listo: ya se ve en el catálogo ✓'); return; } window.__quietPub = false; } return _modal(t, x, a); };
-var autoT = null; function autoPub(){ if (!NETLIFY) return; clearTimeout(autoT); autoT = setTimeout(function(){ if (!dirty) return; window.__quietPub = true; $('#pubBtn').click(); }, 1200); }
+var autoT = null; function autoPub(){ if (!NETLIFY) return; clearTimeout(autoT); autoT = setTimeout(function(){ if (!dirty) return; window.__quietPub = true; $('#pubBtn').click(); }, 900); }
+if (NETLIFY) $('#pubBtn').addEventListener('click', function(ev){ ev.stopImmediatePropagation();
+  if (!dirty) { window.__quietPub = false; toast('No hay cambios por publicar'); return; }
+  modal('Publicando…', 'Guardando tus cambios en el catálogo.', []); $('#mProg').hidden = false; var bar = $('#mProg i');
+  var out = clone(data), refs = [];
+  out.products.forEach(function(p){ p.photos.forEach(function(ph, i){ if (ph.indexOf('pending:') === 0) refs.push({ p:p, i:i, k:ph }); }); });
+  if (out.store.logo && out.store.logo.indexOf('pending:') === 0) refs.push({ logo:true, k:out.store.logo });
+  var total = refs.length + 1, done = 0, stamp = Date.now().toString(36);
+  function step(){ done++; bar.style.width = Math.round(done / total * 100) + '%'; }
+  var chain = Promise.resolve();
+  refs.forEach(function(r, n){ chain = chain.then(function(){ var nombre = (r.logo ? 'logo-' + stamp : r.p.id + '-' + stamp + '-' + n) + '.jpg';
+    return guardarNube({ img: { nombre: nombre, base64: pending[r.k].split(',')[1] } }).then(function(j){ if (r.logo) out.store.logo = j.path; else r.p.photos[r.i] = j.path; step(); }); }); });
+  chain.then(function(){ return guardarNube({ data: out }); })
+  .then(function(j){ step(); out.updated = j.updated; base = out; data = clone(out); pending = {}; clearDraft(); applyLogo(); render();
+    modal('¡Publicado! 🎉', 'Tus cambios ya se ven en el catálogo.', [ { label:'Ver catálogo', fn:function(){ window.open('./', '_blank', 'noopener'); } }, { label:'Listo', cls:'btn-red' } ]); })
+  .catch(function(err){ window.__quietPub = false; modal('No se pudo publicar', 'Tus cambios siguen guardados en este dispositivo. Detalle: ' + err.message, [ { label:'Entendido', cls:'btn-red' } ]); });
+});
 $('#pubBtn').addEventListener('click', function(){`);
+// En Netlify el panel lee los datos vigentes (los guardados desde el panel)
+cambiar("fetch('data.json?v=' + Date.now(), { cache: 'no-store' })", "fetch(/\\.netlify\\.app$/.test(location.hostname) ? '/.netlify/functions/datos?v=' + Date.now() : 'data.json?v=' + Date.now(), { cache: 'no-store' })");
 cambiar("toast(p.active ? '“' + p.name + '” vuelve a estar visible' : '“' + p.name + '” suspendida');", "toast(p.active ? '“' + p.name + '” vuelve a estar visible' : '“' + p.name + '” suspendida'); autoPub();");
 cambiar("'” agotada: se verá como Agotado en el catálogo'); var nb2", "'” agotada: se verá como Agotado en el catálogo'); autoPub(); var nb2");
 

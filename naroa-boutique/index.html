@@ -365,7 +365,7 @@ const money=v=>v==null?'Precio por WhatsApp':'$'+Number(v).toLocaleString('es-MX
 const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const store={get(k,d){try{return JSON.parse(localStorage.getItem('naroa_'+k))??d}catch(e){return d}},set(k,v){try{localStorage.setItem('naroa_'+k,JSON.stringify(v))}catch(e){}}};
 
-fetch('data.json?v='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw 0;return r.json()}).then(init).catch(()=>{$('#grid').innerHTML='<div class="empty" style="grid-column:1/-1">No pudimos cargar el catálogo. Revisa tu conexión y vuelve a intentar.</div>'});
+(/\.netlify\.app$/.test(location.hostname)?fetch('/.netlify/functions/datos?v='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw 0;return r.json()}).catch(()=>fetch('data.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json())):fetch('data.json?v='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw 0;return r.json()})).then(init).catch(()=>{$('#grid').innerHTML='<div class="empty" style="grid-column:1/-1">No pudimos cargar el catálogo. Revisa tu conexión y vuelve a intentar.</div>'});
 
 function init(DATA){
 const S=DATA.store||{}, WA=String(S.whatsapp||'').replace(/\D/g,''), PHONE=S.phone||WA;

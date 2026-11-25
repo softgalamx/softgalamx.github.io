@@ -35,3 +35,10 @@ node tools/tiendas.mjs sincronizar                        # después de cambiar 
 
 - **URL:** `slugify` quita acentos (`ñ→n`), apóstrofos y símbolos, y une las palabras con guiones. Si el nombre ya existe o coincide con una carpeta, se agrega `-2`, `-3`… El slug se fija al crear la boutique: cambiar el nombre en el panel no cambia la URL, para no romper los QR.
 - **Existencia:** el catálogo no muestra una prenda si está suspendida (`active: false`), marcada `status: "agotado"`, o si todas sus tallas están agotadas en `stock`. Si solo algunas tallas están agotadas, la prenda se muestra con esas tallas tachadas.
+
+## Naroa en Netlify (guardado sin llaves)
+
+`naroa-boutique/` también se publica en **naroa-boutique.netlify.app** (base directory `naroa-boutique` en Netlify).
+Ahí el panel no usa GitHub: guarda en **Netlify Blobs** con las funciones de `naroa-boutique/netlify/functions/`
+(`datos`, `guardar`, `img`). Al marcar Agotado o Suspender se guarda solo y el catálogo lo muestra al instante.
+Los datos vigentes en Netlify son los del panel; `data.json` del repositorio solo se usa mientras el panel no haya guardado nada.

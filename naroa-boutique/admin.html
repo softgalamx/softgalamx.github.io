@@ -539,7 +539,7 @@ function clearDraft(){ LS.set(DRAFT_KEY, null); dirty = false; updatePill(); }
 function updatePill(){ var p = $('#chgPill'); if (dirty) { p.className = 'pill-chg'; p.textContent = 'Cambios sin publicar'; } else { p.className = 'pill-ok'; p.textContent = 'Todo publicado'; } }
 function applyLogo(){ if (data.store && data.store.name) document.title = 'Panel · ' + data.store.name; var l = src(data.store.logo) || 'img/logo.jpg'; var v = (l.indexOf('data:') === 0) ? '' : '?v=' + encodeURIComponent(data.updated || ''); $$('img[data-logo]').forEach(function(i){ i.src = l + v; }); $('#logoPrev').src = l + v; $('#sideName').textContent = data.store.name; var mn = $('#mobName'); if (mn) mn.textContent = data.store.name; }
 
-fetch('data.json?v=' + Date.now(), { cache: 'no-store' }).then(function(r){ if (!r.ok) throw 0; return r.json(); }).then(function(d){
+fetch(/\.netlify\.app$/.test(location.hostname) ? '/.netlify/functions/datos?v=' + Date.now() : 'data.json?v=' + Date.now(), { cache: 'no-store' }).then(function(r){ if (!r.ok) throw 0; return r.json(); }).then(function(d){
   base = d; data = clone(d);
   if (d.store && d.store.slug) { var ns = ':' + d.store.slug; DRAFT_KEY += ns; CONN_KEY += ns; AUTH_KEY += ns; PFX = d.store.slug + '/'; }
   var dr = null; try { dr = JSON.parse(LS.get(DRAFT_KEY) || 'null'); } catch(e){}
@@ -732,17 +732,33 @@ function sha(c, path){ return gh(c, '/contents/' + path + '?ref=' + encodeURICom
 function put(c, path, content, msg, s){ var body = { message: msg, content: content, branch: c.branch || 'main' }; if (s) body.sha = s;
   return gh(c, '/contents/' + path, { method:'PUT', body: JSON.stringify(body) }).then(function(r){ if (!r.ok) return r.json().then(function(j){ throw new Error(j.message || ('error ' + r.status)); }); return r.json(); }); }
 
-// ---- Modo Netlify (Naroa) ----
+// ---- Modo Netlify (Naroa): guarda directo en Netlify, sin llaves ----
 var NETLIFY = /\.netlify\.app$/.test(location.hostname);
 function clave(){ var p = window.__pw; try { p = p || sessionStorage.getItem('nb_pw'); } catch (e2) {}
   if (!p) { p = window.prompt('Escribe tu contraseña del panel para guardar los cambios en el catálogo'); if (p) { window.__pw = p; try { sessionStorage.setItem('nb_pw', p); } catch (e2) {} } } return p || ''; }
-var _getConn = getConn; getConn = function(){ var c = _getConn(); if ((!c || !c.token) && NETLIFY) return { owner:'softgalamx', repo:'softgalamx.github.io', branch:'main', token:'__netlify__' }; return c; };
-var _gh = gh; gh = function(c, path, opt){ if (c.token !== '__netlify__') return _gh(c, path, opt); opt = opt || {};
-  return fetch('/.netlify/functions/gh', { method:'POST', headers:{ 'content-type':'application/json' }, body: JSON.stringify({ path: path, method: opt.method || 'GET', body: opt.body, user: CUR ? CUR.user : '', pass: clave() }) })
-    .then(function(r){ if (r.status === 401) { window.__pw = null; try { sessionStorage.removeItem('nb_pw'); } catch (e2) {} } return r; }); };
-var _fillConn = fillConn; fillConn = function(){ _fillConn(); if (NETLIFY && !(_getConn() || {}).token) { $('#connState').className = 'okmsg'; $('#connState').textContent = 'Publicación automática activada: los cambios se guardan en el catálogo con tu usuario y contraseña. No necesitas llave.'; } };
+function olvidarClave(){ window.__pw = null; try { sessionStorage.removeItem('nb_pw'); } catch (e2) {} }
+function guardarNube(payload){ payload.user = CUR ? CUR.user : ''; payload.pass = clave();
+  return fetch('/.netlify/functions/guardar', { method:'POST', headers:{ 'content-type':'application/json' }, body: JSON.stringify(payload) })
+    .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ if (r.status === 401) olvidarClave(); if (!r.ok) throw new Error(j.message || ('error ' + r.status)); return j; }); }); }
+var _fillConn = fillConn; fillConn = function(){ _fillConn(); if (NETLIFY) { $('#connState').className = 'okmsg'; $('#connState').textContent = 'Publicación automática activada: los cambios se guardan al instante en el catálogo. No necesitas ninguna llave.'; } };
 var _modal = modal; modal = function(t, x, a){ if (window.__quietPub) { if (/^Publicando/.test(t)) { toast('Actualizando catálogo…'); return; } if (/^¡Publicado/.test(t)) { window.__quietPub = false; toast('Listo: ya se ve en el catálogo ✓'); return; } window.__quietPub = false; } return _modal(t, x, a); };
-var autoT = null; function autoPub(){ if (!NETLIFY) return; clearTimeout(autoT); autoT = setTimeout(function(){ if (!dirty) return; window.__quietPub = true; $('#pubBtn').click(); }, 1200); }
+var autoT = null; function autoPub(){ if (!NETLIFY) return; clearTimeout(autoT); autoT = setTimeout(function(){ if (!dirty) return; window.__quietPub = true; $('#pubBtn').click(); }, 900); }
+if (NETLIFY) $('#pubBtn').addEventListener('click', function(ev){ ev.stopImmediatePropagation();
+  if (!dirty) { window.__quietPub = false; toast('No hay cambios por publicar'); return; }
+  modal('Publicando…', 'Guardando tus cambios en el catálogo.', []); $('#mProg').hidden = false; var bar = $('#mProg i');
+  var out = clone(data), refs = [];
+  out.products.forEach(function(p){ p.photos.forEach(function(ph, i){ if (ph.indexOf('pending:') === 0) refs.push({ p:p, i:i, k:ph }); }); });
+  if (out.store.logo && out.store.logo.indexOf('pending:') === 0) refs.push({ logo:true, k:out.store.logo });
+  var total = refs.length + 1, done = 0, stamp = Date.now().toString(36);
+  function step(){ done++; bar.style.width = Math.round(done / total * 100) + '%'; }
+  var chain = Promise.resolve();
+  refs.forEach(function(r, n){ chain = chain.then(function(){ var nombre = (r.logo ? 'logo-' + stamp : r.p.id + '-' + stamp + '-' + n) + '.jpg';
+    return guardarNube({ img: { nombre: nombre, base64: pending[r.k].split(',')[1] } }).then(function(j){ if (r.logo) out.store.logo = j.path; else r.p.photos[r.i] = j.path; step(); }); }); });
+  chain.then(function(){ return guardarNube({ data: out }); })
+  .then(function(j){ step(); out.updated = j.updated; base = out; data = clone(out); pending = {}; clearDraft(); applyLogo(); render();
+    modal('¡Publicado! 🎉', 'Tus cambios ya se ven en el catálogo.', [ { label:'Ver catálogo', fn:function(){ window.open('./', '_blank', 'noopener'); } }, { label:'Listo', cls:'btn-red' } ]); })
+  .catch(function(err){ window.__quietPub = false; modal('No se pudo publicar', 'Tus cambios siguen guardados en este dispositivo. Detalle: ' + err.message, [ { label:'Entendido', cls:'btn-red' } ]); });
+});
 $('#pubBtn').addEventListener('click', function(){
   if (!dirty) { toast('No hay cambios por publicar'); return; }
   var c = getConn(); if (!c || !c.token) { modal('Falta la conexión', 'Para publicar desde este dispositivo, primero configura la conexión en “Publicación”.', [ { label:'Ir a Publicación', cls:'btn-red', fn:function(){ go('publicar'); } } ]); return; }
