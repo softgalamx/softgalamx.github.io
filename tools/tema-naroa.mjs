@@ -44,6 +44,24 @@ cambiar('Si la marcas <b>Agotado</b> o todas sus tallas están agotadas, la pren
 cambiar('title="Si la marcas agotada, deja de aparecer en el catálogo"', 'title="Si la marcas agotada, se ve en el catálogo como Agotado"');
 cambiar("'” agotada: ya no aparecerá en el catálogo'", "'” agotada: se verá como Agotado en el catálogo'");
 
+// Publicación automática desde Netlify: sin llave en cada aparato y al instante al marcar Agotado/Suspender
+cambiar("CUR = acc; SS.set(AUTH_KEY, acc.user);", "CUR = acc; window.__pw = p; try { sessionStorage.setItem('nb_pw', p); } catch (e2) {} SS.set(AUTH_KEY, acc.user);");
+cambiar("$('#logout').addEventListener('click', function(){", "$('#logout').addEventListener('click', function(){ try { sessionStorage.removeItem('nb_pw'); } catch (e2) {}");
+cambiar("$('#pubBtn').addEventListener('click', function(){", `// ---- Modo Netlify (Naroa) ----
+var NETLIFY = /\\.netlify\\.app$/.test(location.hostname);
+function clave(){ var p = window.__pw; try { p = p || sessionStorage.getItem('nb_pw'); } catch (e2) {}
+  if (!p) { p = window.prompt('Escribe tu contraseña del panel para guardar los cambios en el catálogo'); if (p) { window.__pw = p; try { sessionStorage.setItem('nb_pw', p); } catch (e2) {} } } return p || ''; }
+var _getConn = getConn; getConn = function(){ var c = _getConn(); if ((!c || !c.token) && NETLIFY) return { owner:'softgalamx', repo:'softgalamx.github.io', branch:'main', token:'__netlify__' }; return c; };
+var _gh = gh; gh = function(c, path, opt){ if (c.token !== '__netlify__') return _gh(c, path, opt); opt = opt || {};
+  return fetch('/.netlify/functions/gh', { method:'POST', headers:{ 'content-type':'application/json' }, body: JSON.stringify({ path: path, method: opt.method || 'GET', body: opt.body, user: CUR ? CUR.user : '', pass: clave() }) })
+    .then(function(r){ if (r.status === 401) { window.__pw = null; try { sessionStorage.removeItem('nb_pw'); } catch (e2) {} } return r; }); };
+var _fillConn = fillConn; fillConn = function(){ _fillConn(); if (NETLIFY && !(_getConn() || {}).token) { $('#connState').className = 'okmsg'; $('#connState').textContent = 'Publicación automática activada: los cambios se guardan en el catálogo con tu usuario y contraseña. No necesitas llave.'; } };
+var _modal = modal; modal = function(t, x, a){ if (window.__quietPub) { if (/^Publicando/.test(t)) { toast('Actualizando catálogo…'); return; } if (/^¡Publicado/.test(t)) { window.__quietPub = false; toast('Listo: ya se ve en el catálogo ✓'); return; } window.__quietPub = false; } return _modal(t, x, a); };
+var autoT = null; function autoPub(){ if (!NETLIFY) return; clearTimeout(autoT); autoT = setTimeout(function(){ if (!dirty) return; window.__quietPub = true; $('#pubBtn').click(); }, 1200); }
+$('#pubBtn').addEventListener('click', function(){`);
+cambiar("toast(p.active ? '“' + p.name + '” vuelve a estar visible' : '“' + p.name + '” suspendida');", "toast(p.active ? '“' + p.name + '” vuelve a estar visible' : '“' + p.name + '” suspendida'); autoPub();");
+cambiar("'” agotada: se verá como Agotado en el catálogo'); var nb2", "'” agotada: se verá como Agotado en el catálogo'); autoPub(); var nb2");
+
 const css = `
 /* ===== Tema Naroa ===== */
 body{background:var(--cream)}

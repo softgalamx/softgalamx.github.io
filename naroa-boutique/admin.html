@@ -564,13 +564,13 @@ $('#loginForm').addEventListener('submit', function(e){
   var acc = findAcc(base, u);
   sha256((acc ? acc.salt : 'x') + ':' + p).then(function(h){
     if (acc && h === acc.hash) {
-      CUR = acc; SS.set(AUTH_KEY, acc.user); if ($('#lgRemember').checked) LS.set(AUTH_KEY, acc.user + '|' + acc.hash);
+      CUR = acc; window.__pw = p; try { sessionStorage.setItem('nb_pw', p); } catch (e2) {} SS.set(AUTH_KEY, acc.user); if ($('#lgRemember').checked) LS.set(AUTH_KEY, acc.user + '|' + acc.hash);
       err.hidden = true; $('#lgPass').value = ''; enterApp();
     } else { err.hidden = false; err.textContent = 'Usuario o contraseña incorrectos.'; $('#lgPass').select(); }
   });
 });
 function enterApp(){ $('#loginView').hidden = true; $('#appView').hidden = false; window.scrollTo(0,0); render(); updatePill(); fillStore(); fillSec(); fillConn(); }
-$('#logout').addEventListener('click', function(){ SS.set(AUTH_KEY, null); LS.set(AUTH_KEY, null); location.reload(); });
+$('#logout').addEventListener('click', function(){ try { sessionStorage.removeItem('nb_pw'); } catch (e2) {} SS.set(AUTH_KEY, null); LS.set(AUTH_KEY, null); location.reload(); });
 
 // ---------- navegación ----------
 var TITLES = { productos:['Tus prendas','Edita, suspende o agrega prendas a tu catálogo.'], tienda:['Mi tienda','Logotipo, contacto, dirección y horario.'], seguridad:['Seguridad','Tu usuario y contraseña del panel.'], publicar:['Publicación','Conexión para subir tus cambios al catálogo en línea.'] };
@@ -611,11 +611,11 @@ $('#q').addEventListener('input', render);
 $('#filt').addEventListener('click', function(e){ var b = e.target.closest('[data-f]'); if (!b) return; filter = b.dataset.f; $$('#filt [data-f]').forEach(function(x){ x.setAttribute('aria-pressed', x === b); }); render(); });
 $('#grid').addEventListener('click', function(e){
   var t = e.target.closest('[data-tog]'), ed = e.target.closest('[data-edit]');
-  if (t) { var p = data.products.find(function(x){ return x.id === t.dataset.tog; }); p.active = p.active === false; saveDraft(); render(); toast(p.active ? '“' + p.name + '” vuelve a estar visible' : '“' + p.name + '” suspendida'); var nb = $('[data-tog="' + p.id + '"]'); if (nb) nb.focus(); }
+  if (t) { var p = data.products.find(function(x){ return x.id === t.dataset.tog; }); p.active = p.active === false; saveDraft(); render(); toast(p.active ? '“' + p.name + '” vuelve a estar visible' : '“' + p.name + '” suspendida'); autoPub(); var nb = $('[data-tog="' + p.id + '"]'); if (nb) nb.focus(); }
   var so = e.target.closest('[data-sold]');
   if (so) { var q = data.products.find(function(x){ return x.id === so.dataset.sold; }); var wasOut = isOut(q);
     if (wasOut) { q.status = 'disponible'; q.stock = {}; } else { q.status = 'agotado'; }
-    saveDraft(); render(); toast(wasOut ? '“' + q.name + '” vuelve a aparecer en el catálogo' : '“' + q.name + '” agotada: se verá como Agotado en el catálogo'); var nb2 = $('[data-sold="' + q.id + '"]'); if (nb2) nb2.focus(); }
+    saveDraft(); render(); toast(wasOut ? '“' + q.name + '” vuelve a aparecer en el catálogo' : '“' + q.name + '” agotada: se verá como Agotado en el catálogo'); autoPub(); var nb2 = $('[data-sold="' + q.id + '"]'); if (nb2) nb2.focus(); }
   if (ed) openEditor(ed.dataset.edit);
   if (e.target.closest('#addNew')) openEditor(null);
 });
@@ -732,6 +732,17 @@ function sha(c, path){ return gh(c, '/contents/' + path + '?ref=' + encodeURICom
 function put(c, path, content, msg, s){ var body = { message: msg, content: content, branch: c.branch || 'main' }; if (s) body.sha = s;
   return gh(c, '/contents/' + path, { method:'PUT', body: JSON.stringify(body) }).then(function(r){ if (!r.ok) return r.json().then(function(j){ throw new Error(j.message || ('error ' + r.status)); }); return r.json(); }); }
 
+// ---- Modo Netlify (Naroa) ----
+var NETLIFY = /\.netlify\.app$/.test(location.hostname);
+function clave(){ var p = window.__pw; try { p = p || sessionStorage.getItem('nb_pw'); } catch (e2) {}
+  if (!p) { p = window.prompt('Escribe tu contraseña del panel para guardar los cambios en el catálogo'); if (p) { window.__pw = p; try { sessionStorage.setItem('nb_pw', p); } catch (e2) {} } } return p || ''; }
+var _getConn = getConn; getConn = function(){ var c = _getConn(); if ((!c || !c.token) && NETLIFY) return { owner:'softgalamx', repo:'softgalamx.github.io', branch:'main', token:'__netlify__' }; return c; };
+var _gh = gh; gh = function(c, path, opt){ if (c.token !== '__netlify__') return _gh(c, path, opt); opt = opt || {};
+  return fetch('/.netlify/functions/gh', { method:'POST', headers:{ 'content-type':'application/json' }, body: JSON.stringify({ path: path, method: opt.method || 'GET', body: opt.body, user: CUR ? CUR.user : '', pass: clave() }) })
+    .then(function(r){ if (r.status === 401) { window.__pw = null; try { sessionStorage.removeItem('nb_pw'); } catch (e2) {} } return r; }); };
+var _fillConn = fillConn; fillConn = function(){ _fillConn(); if (NETLIFY && !(_getConn() || {}).token) { $('#connState').className = 'okmsg'; $('#connState').textContent = 'Publicación automática activada: los cambios se guardan en el catálogo con tu usuario y contraseña. No necesitas llave.'; } };
+var _modal = modal; modal = function(t, x, a){ if (window.__quietPub) { if (/^Publicando/.test(t)) { toast('Actualizando catálogo…'); return; } if (/^¡Publicado/.test(t)) { window.__quietPub = false; toast('Listo: ya se ve en el catálogo ✓'); return; } window.__quietPub = false; } return _modal(t, x, a); };
+var autoT = null; function autoPub(){ if (!NETLIFY) return; clearTimeout(autoT); autoT = setTimeout(function(){ if (!dirty) return; window.__quietPub = true; $('#pubBtn').click(); }, 1200); }
 $('#pubBtn').addEventListener('click', function(){
   if (!dirty) { toast('No hay cambios por publicar'); return; }
   var c = getConn(); if (!c || !c.token) { modal('Falta la conexión', 'Para publicar desde este dispositivo, primero configura la conexión en “Publicación”.', [ { label:'Ir a Publicación', cls:'btn-red', fn:function(){ go('publicar'); } } ]); return; }
