@@ -1,4 +1,5 @@
 # Netlify publica esta carpeta tal cual (sitio estático, sin compilar).
+# Base directory en Netlify: naroa-boutique
 [build]
   publish = "."
   command = ""
