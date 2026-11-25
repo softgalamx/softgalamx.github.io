@@ -38,6 +38,12 @@ cambiar('<h2>¡Hola de nuevo!</h2>', '<span class="kicker">✦ Panel privado</sp
 // Bienvenida dentro del panel
 cambiar('<section class="hero" aria-label="Bienvenida"><div class="glow3"></div>', '<section class="hero" aria-label="Bienvenida"><canvas class="cst" aria-hidden="true"></canvas><div class="glow3"></div>');
 
+
+// En Naroa las prendas agotadas siguen visibles en el catálogo con la etiqueta "Agotado"
+cambiar('Si la marcas <b>Agotado</b> o todas sus tallas están agotadas, la prenda deja de aparecer en el catálogo hasta que vuelva a haber.', 'Si la marcas <b>Agotado</b> o todas sus tallas están agotadas, en el catálogo aparece en gris con la etiqueta <b>Agotado</b> y no se puede añadir al carrito. Para que no se vea, usa <b>Suspender</b>.');
+cambiar('title="Si la marcas agotada, deja de aparecer en el catálogo"', 'title="Si la marcas agotada, se ve en el catálogo como Agotado"');
+cambiar("'” agotada: ya no aparecerá en el catálogo'", "'” agotada: se verá como Agotado en el catálogo'");
+
 const css = `
 /* ===== Tema Naroa ===== */
 body{background:var(--cream)}

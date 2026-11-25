@@ -471,7 +471,7 @@ h1 i,h2 i{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;color
       <p style="font-size:14px;font-weight:700;margin:0 0 8px">Tallas agotadas <span style="font-weight:400;color:var(--soft)">(toca para tachar)</span></p>
       <div class="chips" id="edOut" role="group" aria-label="Tallas agotadas"></div>
       <p class="sec" style="margin-top:18px">Disponibilidad</p>
-      <p style="font-size:13px;color:var(--soft);margin:-4px 0 10px">Si la marcas <b>Agotado</b> o todas sus tallas están agotadas, la prenda deja de aparecer en el catálogo hasta que vuelva a haber.</p>
+      <p style="font-size:13px;color:var(--soft);margin:-4px 0 10px">Si la marcas <b>Agotado</b> o todas sus tallas están agotadas, en el catálogo aparece en gris con la etiqueta <b>Agotado</b> y no se puede añadir al carrito. Para que no se vea, usa <b>Suspender</b>.</p>
       <div class="st3" role="group" aria-label="Estado de la prenda" id="edStatus">
         <button type="button" data-st="disponible" aria-pressed="false">Disponible</button>
         <button type="button" data-st="pocas" aria-pressed="false">Últimas piezas</button>
@@ -599,7 +599,7 @@ function render(){
       '<div class="bd"><h3>' + esc(p.name) + '</h3><span class="meta">' + esc(p.cat || 'Sin categoría') + ' · ' + esc((p.sizes || []).join(', ')) + '</span>' +
       '<span class="price' + (p.price == null || p.price === '' ? ' ask' : '') + '">' + (p.price == null || p.price === '' ? 'Precio por WhatsApp' : money(p.price)) + '</span>' +
       '<div class="toggles">' +
-      '<div class="trow" title="Si la marcas agotada, deja de aparecer en el catálogo"><span>En existencia</span><button type="button" class="sw sw-stock" role="switch" aria-checked="' + !out + '" data-sold="' + esc(p.id) + '" aria-label="' + esc(p.name) + ' en existencia"><span class="tlbl">' + (out ? 'Agotada' : 'Sí hay') + '</span><span class="tr"></span></button></div>' +
+      '<div class="trow" title="Si la marcas agotada, se ve en el catálogo como Agotado"><span>En existencia</span><button type="button" class="sw sw-stock" role="switch" aria-checked="' + !out + '" data-sold="' + esc(p.id) + '" aria-label="' + esc(p.name) + ' en existencia"><span class="tlbl">' + (out ? 'Agotada' : 'Sí hay') + '</span><span class="tr"></span></button></div>' +
       '<div class="trow"><span>Visible en catálogo</span><button type="button" class="sw" role="switch" aria-checked="' + !off + '" data-tog="' + esc(p.id) + '" aria-label="' + esc(p.name) + ' visible en el catálogo"><span class="tlbl">' + (off ? 'Suspendida' : 'Visible') + '</span><span class="tr"></span></button></div>' +
       '</div><button type="button" class="edit" data-edit="' + esc(p.id) + '" style="justify-content:center;width:100%">Editar prenda</button></div></article>';
   }).join('');
@@ -615,7 +615,7 @@ $('#grid').addEventListener('click', function(e){
   var so = e.target.closest('[data-sold]');
   if (so) { var q = data.products.find(function(x){ return x.id === so.dataset.sold; }); var wasOut = isOut(q);
     if (wasOut) { q.status = 'disponible'; q.stock = {}; } else { q.status = 'agotado'; }
-    saveDraft(); render(); toast(wasOut ? '“' + q.name + '” vuelve a aparecer en el catálogo' : '“' + q.name + '” agotada: ya no aparecerá en el catálogo'); var nb2 = $('[data-sold="' + q.id + '"]'); if (nb2) nb2.focus(); }
+    saveDraft(); render(); toast(wasOut ? '“' + q.name + '” vuelve a aparecer en el catálogo' : '“' + q.name + '” agotada: se verá como Agotado en el catálogo'); var nb2 = $('[data-sold="' + q.id + '"]'); if (nb2) nb2.focus(); }
   if (ed) openEditor(ed.dataset.edit);
   if (e.target.closest('#addNew')) openEditor(null);
 });
