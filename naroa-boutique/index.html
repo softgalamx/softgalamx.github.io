@@ -228,7 +228,7 @@ footer b{color:#fff}
 .sparks i{position:absolute;width:var(--z,8px);height:var(--z,8px);background:#f1cf8a;clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);opacity:0;animation:tw var(--d,4s) ease-in-out var(--t,0s) infinite;pointer-events:none}
 @keyframes tw{0%,100%{opacity:0;transform:translateY(0) scale(.4) rotate(0)}50%{opacity:.9;transform:translateY(-14px) scale(1) rotate(90deg)}}
 .stage .mlogo{margin:0 auto 14px;z-index:2}
-.stage .mplay{position:relative;z-index:2;justify-content:center;margin:0}.stage .mplay small{color:#f0d9c9}
+.stage .mplay{position:relative;z-index:2;justify-content:center;margin:0}.stage .mplay small{color:#f0d9c9;letter-spacing:.08em}
 .stage .playbtn{border-color:#f1cf8a;color:#f6ece2;background:rgba(255,255,255,.06);backdrop-filter:blur(4px)}
 .stage .playbtn:hover,.stage .playbtn[aria-pressed=true]{background:#f1cf8a;color:#4a1019}
 .stage .ml.hit img{filter:sepia(1) saturate(4) hue-rotate(-12deg) brightness(1.02) drop-shadow(0 0 10px rgba(241,207,138,.9))}
@@ -291,7 +291,7 @@ footer b{color:#fff}
       <canvas id="stars" aria-hidden="true"></canvas><div class="grain" aria-hidden="true"></div>
       <div class="spot" aria-hidden="true"></div><div class="halo" aria-hidden="true"></div>
       <div class="mlogo" id="mlogo" role="group" aria-label="NAROA Boutique: toca cada letra para escuchar una nota"><img class="mbase" src="img/logo-naroa-base-blanco.png" alt=""><button class="ml" data-note="0" style="left:21.778%;width:11.556%" aria-label="Letra N, nota Do"><img src="img/letra-n-blanco.png" alt=""></button><button class="ml" data-note="1" style="left:33.333%;width:11.333%" aria-label="Letra A, nota Mi"><img src="img/letra-a1-blanco.png" alt=""></button><button class="ml" data-note="2" style="left:44.667%;width:11.444%" aria-label="Letra R, nota Sol"><img src="img/letra-r-blanco.png" alt=""></button><button class="ml" data-note="3" style="left:56.111%;width:10.556%" aria-label="Letra O, nota La"><img src="img/letra-o-blanco.png" alt=""></button><button class="ml" data-note="4" style="left:66.667%;width:11.333%" aria-label="Letra A, nota Do alto"><img src="img/letra-a2-blanco.png" alt=""></button></div>
-    <div class="mplay"><button class="playbtn" id="playMel" aria-pressed="false"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><span class="pl">Tocar la melodía de NAROA</span></button><small>o toca cada letra del logo</small></div>
+    <div class="mplay"><small class="mhint">✦ Toca cada letra y descubre su magia</small></div>
       <div class="viz" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
     <p class="tag2">Mexicali · Colecciones con intención</p><span class="hint">Toca el fondo ✦</span><a class="cue" href="#inicio" aria-label="Ver catálogo"><span></span></a>
     </section>
@@ -523,18 +523,19 @@ $('#onlyFav').addEventListener('change',e=>set({fav:e.target.checked}));
 {
 const FREQ=[523.25,659.25,783.99,880,1046.5];let AC=null;
 const ac=()=>{if(!AC){const C=window.AudioContext||window.webkitAudioContext;if(!C)return null;AC=new C()}if(AC.state==='suspended')AC.resume();return AC};
-function tone(i,dur=.9,when=0){const a=ac();if(!a)return;const t=a.currentTime+when,f=FREQ[i];const out=a.createGain();out.gain.setValueAtTime(0,t);out.gain.linearRampToValueAtTime(.22,t+.015);out.gain.exponentialRampToValueAtTime(.0008,t+dur);
- const dl=a.createDelay();dl.delayTime.value=.18;const fb=a.createGain();fb.gain.value=.28;dl.connect(fb).connect(dl);out.connect(a.destination);out.connect(dl);dl.connect(a.destination);
- [[f,'sine',1],[f*2,'triangle',.18],[f*3.01,'sine',.06]].forEach(([fr,ty,g])=>{const o=a.createOscillator(),gg=a.createGain();o.type=ty;o.frequency.value=fr;gg.gain.value=g;o.connect(gg).connect(out);o.start(t);o.stop(t+dur+.05)})}
+const BASE=[659.25,783.99,880,1046.5,1318.5];let REV=null;
+function bus(a){if(REV)return REV;const inp=a.createGain();inp.gain.value=1;const d1=a.createDelay(),d2=a.createDelay(),f1=a.createGain(),f2=a.createGain(),lp=a.createBiquadFilter();d1.delayTime.value=.13;d2.delayTime.value=.29;f1.gain.value=.42;f2.gain.value=.36;lp.type='lowpass';lp.frequency.value=5200;
+ inp.connect(d1);inp.connect(d2);d1.connect(lp);d2.connect(lp);lp.connect(f1);lp.connect(f2);f1.connect(d2);f2.connect(d1);const wet=a.createGain();wet.gain.value=.55;lp.connect(wet);wet.connect(a.destination);inp.connect(a.destination);REV=inp;return inp}
+function bell(a,f,t,vol,dur){const out=bus(a);const g=a.createGain();g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(vol,t+.006);g.gain.exponentialRampToValueAtTime(.0005,t+dur);g.connect(out);
+ [[1,1],[2.76,.32],[5.4,.14],[8.93,.05]].forEach(([m,v])=>{const o=a.createOscillator(),gg=a.createGain();o.type='sine';o.frequency.setValueAtTime(f*m,t);o.detune.value=(Math.random()-.5)*8;gg.gain.value=v;o.connect(gg).connect(g);o.start(t);o.stop(t+dur+.05)})}
+function tone(i,dur=1.6,when=0){const a=ac();if(!a)return;const t=a.currentTime+when,f=BASE[i];
+ [1,1.25,1.5,2,2.5,3].forEach((m,k)=>bell(a,f*m,t+k*.045,.11*(1-k*.1),dur*(1-k*.08)));
+ for(let k=0;k<5;k++)bell(a,f*4*(1+Math.random()*.5),t+.08+Math.random()*.35,.03,.5);}
 const L=[...document.querySelectorAll('.ml')];
 function bounce(i,quiet){const b=L[i];if(!b)return;if(!quiet&&window.__naroaRipple)window.__naroaRipple(i);const v=document.querySelectorAll('.viz i')[i];if(v&&!quiet){v.classList.add('on');setTimeout(()=>v.classList.remove('on'),140)}const ml=$('#mlogo');if(!quiet){ml.classList.add('glow');clearTimeout(ml._g);ml._g=setTimeout(()=>ml.classList.remove('glow'),400)}b.classList.remove('hit');void b.offsetWidth;b.classList.add('hit');if(RM)return;const box=$('#mlogo').getBoundingClientRect(),r=b.getBoundingClientRect(),cx=r.left-box.left+r.width/2,cy=r.top-box.top+r.height*.3;
  if(quiet)return;const n=document.createElement('span');n.className='mnote';n.textContent=['♪','♫','♩','♬','♪'][i];n.style.left=cx+'px';n.style.top=cy+'px';$('#mlogo').appendChild(n);setTimeout(()=>n.remove(),1200);
  for(let k=0;k<6;k++){const s=document.createElement('span');s.className='spark';s.style.left=cx+'px';s.style.top=cy+'px';const ang=Math.random()*Math.PI*2,d=24+Math.random()*30;s.style.setProperty('--dx',Math.cos(ang)*d+'px');s.style.setProperty('--dy',Math.sin(ang)*d+'px');$('#mlogo').appendChild(s);setTimeout(()=>s.remove(),850)}}
 L.forEach((b,i)=>{b.addEventListener('pointerdown',e=>{e.preventDefault();tone(i);bounce(i)});b.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();tone(i);bounce(i)}});b.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse'&&e.buttons===1){tone(i,.6);bounce(i)}})});
-/* Melodía: N-A-R-O-A y un pequeño giro final */
-const MEL=[[0,.0],[1,.22],[2,.44],[3,.66],[4,.88],[3,1.32],[4,1.54],[2,1.98],[1,2.2],[0,2.42],[2,2.86],[4,3.08]];let playing=null;
-$('#playMel').addEventListener('click',()=>{const btn=$('#playMel');if(playing){playing.forEach(clearTimeout);playing=null;btn.setAttribute('aria-pressed','false');btn.querySelector('.pl').textContent='Tocar la melodía de NAROA';return}
- if(!ac())return;btn.setAttribute('aria-pressed','true');btn.querySelector('.pl').textContent='Detener';playing=MEL.map(([i,t],k)=>setTimeout(()=>{tone(i,k===MEL.length-1?1.6:.7);bounce(i);if(k===MEL.length-1)setTimeout(()=>{playing=null;btn.setAttribute('aria-pressed','false');btn.querySelector('.pl').textContent='Tocar la melodía de NAROA'},900)},t*1000))});
 /* Saludo visual al cargar (sin sonido hasta que la clienta toque) */
 window.__naroaBounce=bounce;if(!RM)L.forEach((b,i)=>setTimeout(()=>bounce(i),600+i*140));
 }
@@ -547,7 +548,7 @@ if(!RM&&matchMedia('(hover:hover)').matches){$('#grid').addEventListener('pointe
  if($('#sparks'))$('#sparks').innerHTML=Array.from({length:22},()=>`<i style="left:${(Math.random()*96).toFixed(1)}%;top:${(Math.random()*90).toFixed(1)}%;--z:${(5+Math.random()*9).toFixed(0)}px;--d:${(3+Math.random()*4).toFixed(1)}s;--t:${(-Math.random()*6).toFixed(1)}s"></i>`).join('');
  st.addEventListener('pointermove',e=>{const r=st.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*100,y=(e.clientY-r.top)/r.height*100;st.style.setProperty('--sx',x+'%');st.style.setProperty('--sy',y+'%');st.style.setProperty('--mx',x+'%');st.style.setProperty('--my',y+'%')});
  st.addEventListener('pointerleave',()=>{st.style.setProperty('--sx','50%');st.style.setProperty('--sy','40%')});
- if(!RM){let ph=0;setInterval(()=>{if(document.hidden||$('#playMel').getAttribute('aria-pressed')==='true')return;const r=st.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;ph++;[0,1,2,3,4].forEach((i,k)=>setTimeout(()=>window.__naroaBounce&&window.__naroaBounce(ph%2?4-i:i,true),k*120))},7000)}
+ if(!RM){let ph=0;setInterval(()=>{if(document.hidden)return;const r=st.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;ph++;[0,1,2,3,4].forEach((i,k)=>setTimeout(()=>window.__naroaBounce&&window.__naroaBounce(ph%2?4-i:i,true),k*120))},7000)}
 }}
 
 
