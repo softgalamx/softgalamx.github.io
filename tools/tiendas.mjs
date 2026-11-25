@@ -32,7 +32,8 @@ function generarArchivos(reg, t) {
   // t.plantilla permite que una boutique use un diseño de catálogo propio (ej. "catalogo-naroa.html").
   const catalogo = readFileSync(join(RAIZ, 'plantilla', t.plantilla || 'catalogo.html'), 'utf8').replaceAll('__URL__', url);
   writeFileSync(join(dir, 'index.html'), catalogo);
-  writeFileSync(join(dir, 'admin.html'), readFileSync(join(RAIZ, 'plantilla/admin.html'), 'utf8'));
+  // t.admin permite un diseño de panel propio (ej. "admin-naroa.html", generado con tools/tema-naroa.mjs).
+  writeFileSync(join(dir, 'admin.html'), readFileSync(join(RAIZ, 'plantilla', t.admin || 'admin.html'), 'utf8'));
   // El id y el slug de data.json siempre deben coincidir con el registro.
   const df = join(dir, 'data.json');
   if (existsSync(df)) {

@@ -12,7 +12,8 @@
    "slug": "naroa-boutique",
    "nombre": "Naroa Boutique",
    "creada": "2026-11-25",
-   "plantilla": "catalogo-naroa.html"
+   "plantilla": "catalogo-naroa.html",
+   "admin": "admin-naroa.html"
   }
  ]
 }
