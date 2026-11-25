@@ -203,6 +203,7 @@ a{color:var(--red)}
 /* panels */
 .panel{background:var(--white);border:1px solid var(--line);border-radius:24px;padding:24px;margin-bottom:18px}
 .panel h2{font-size:24px;margin-bottom:4px}
+.ulist{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:10px}.ulist li{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:16px;padding:10px 14px;background:var(--cream)}.ulist .av{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--choc);color:#fff;font-weight:700;flex:none}.ulist .nm{flex:1;min-width:0}.ulist .nm b{display:block}.ulist .nm small{color:var(--soft)}.ulist .tagu{font-size:12px;font-weight:700;border-radius:999px;padding:3px 10px;background:var(--blush);color:var(--choc)}.ulist .tagu.me{background:var(--choc);color:#fff}.ulist .rmu{border:1px solid var(--line);background:var(--white);color:var(--red);border-radius:999px;min-height:38px;padding:0 14px;font-weight:700}.uh{font-size:20px;margin:6px 0 12px}
 .panel .help{color:var(--soft);margin:0 0 18px;font-size:15px}
 .cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px}
 @media (max-width:700px){.cols{grid-template-columns:1fr}}
@@ -412,6 +413,20 @@ h1 i,h2 i{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;color
         <div class="fld"><label for="secPass2">Repite la contraseña</label><div class="ipt"><svg class="lead" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><input id="secPass2" type="password" class="has-eye" autocomplete="new-password"><button type="button" class="eye" data-eye="secPass2" aria-label="Mostrar contraseña" aria-pressed="false"></button></div></div>
         <button class="btn btn-dark" type="submit">Guardar acceso</button>
       </form>
+      <div class="panel" id="usersPanel">
+        <h2>Usuarios del panel</h2><p class="help">Da acceso a otras personas de tu equipo con su propio usuario y contraseña. Los cambios se activan al publicar.</p>
+        <ul class="ulist" id="uList"></ul>
+        <form id="uForm" novalidate>
+          <h3 class="uh">Agregar usuario</h3>
+          <p class="err" id="uErr" role="alert" hidden></p>
+          <div class="cols">
+            <label class="f"><span>Nombre</span><input id="uName" autocomplete="off" placeholder="Ej. Ana López"></label>
+            <label class="f"><span>Usuario</span><input id="uUser" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="Ej. ana"></label>
+          </div>
+          <div class="fld"><label for="uPass">Contraseña</label><div class="ipt"><svg class="lead" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><input id="uPass" type="password" class="has-eye" autocomplete="new-password"><button type="button" class="eye" data-eye="uPass" aria-label="Mostrar contraseña" aria-pressed="false"></button></div><small style="color:var(--soft);font-size:13px">Mínimo 6 caracteres.</small></div>
+          <button class="btn btn-dark" type="submit">Agregar usuario</button>
+        </form>
+      </div>
     </section>
 
     <!-- PUBLICAR -->
@@ -530,7 +545,7 @@ fetch('data.json?v=' + Date.now(), { cache: 'no-store' }).then(function(r){ if (
   var dr = null; try { dr = JSON.parse(LS.get(DRAFT_KEY) || 'null'); } catch(e){}
   if (dr && dr.data) { data = dr.data; pending = dr.pending || {}; dirty = true; if (dr.baseUpdated !== d.updated) { data.auth = d.auth; } }
   applyLogo(); buildFan();
-  if (SS.get(AUTH_KEY) === '1' || LS.get(AUTH_KEY) === d.auth.hash) enterApp();
+  var rem = LS.get(AUTH_KEY), ses = SS.get(AUTH_KEY); if (ses) { CUR = findAcc(d, ses === '1' ? d.auth.user : ses) || accounts(d)[0]; enterApp(); } else if (rem && (rem === d.auth.hash || accounts(d).some(function(a){ return rem === a.user + '|' + a.hash; }))) { CUR = rem === d.auth.hash ? accounts(d)[0] : findAcc(d, rem.split('|')[0]); SS.set(AUTH_KEY, CUR.user); enterApp(); }
 }).catch(function(){ $('#loginErr').hidden = false; $('#loginErr').textContent = 'No se pudieron cargar los datos del catálogo. Revisa tu conexión a internet.'; });
 
 function makeFloaters(el, n){ if (!el) return; var h = ''; for (var i = 0; i < n; i++) { var sp = i % 3 === 0; h += '<span' + (sp ? ' class="sp"' : '') + ' style="left:' + (Math.random()*100).toFixed(1) + '%;font-size:' + (10 + Math.random()*18).toFixed(0) + 'px;animation-duration:' + (9 + Math.random()*10).toFixed(1) + 's;animation-delay:-' + (Math.random()*18).toFixed(1) + 's">' + (sp ? '✦' : '✧') + '</span>'; } el.innerHTML = h; }
@@ -538,13 +553,18 @@ makeFloaters(document.getElementById('floaters'), 22); makeFloaters(document.get
 function buildFan(){ var ph = (data.products || []).filter(function(p){ return p.photos && p.photos.length; }).slice(0, 3);
   $('#fan').innerHTML = ph.map(function(p, i){ return '<figure class="f' + (i+1) + '"><img src="' + esc(src(p.photos[0])) + '" alt=""></figure>'; }).join(''); }
 
+// ---------- usuarios ----------
+var CUR = null;
+function accounts(d){ return [{ user:String(d.auth.user).toLowerCase(), name:d.auth.name || cap(d.auth.user), salt:d.auth.salt, hash:d.auth.hash, owner:true }].concat((d.users || []).map(function(x){ return { user:String(x.user).toLowerCase(), name:x.name || cap(x.user), salt:x.salt, hash:x.hash }; })); }
+function findAcc(d, u){ u = String(u || '').trim().toLowerCase(); return accounts(d).filter(function(a){ return a.user === u; })[0] || null; }
 // ---------- login ----------
 $('#loginForm').addEventListener('submit', function(e){
   e.preventDefault(); if (!base) return; var u = $('#lgUser').value.trim().toLowerCase(), p = $('#lgPass').value, err = $('#loginErr');
   if (!u || !p) { err.hidden = false; err.textContent = 'Escribe tu usuario y contraseña.'; return; }
-  sha256(base.auth.salt + ':' + p).then(function(h){
-    if (u === String(base.auth.user).toLowerCase() && h === base.auth.hash) {
-      SS.set(AUTH_KEY, '1'); if ($('#lgRemember').checked) LS.set(AUTH_KEY, base.auth.hash);
+  var acc = findAcc(base, u);
+  sha256((acc ? acc.salt : 'x') + ':' + p).then(function(h){
+    if (acc && h === acc.hash) {
+      CUR = acc; SS.set(AUTH_KEY, acc.user); if ($('#lgRemember').checked) LS.set(AUTH_KEY, acc.user + '|' + acc.hash);
       err.hidden = true; $('#lgPass').value = ''; enterApp();
     } else { err.hidden = false; err.textContent = 'Usuario o contraseña incorrectos.'; $('#lgPass').select(); }
   });
@@ -566,7 +586,7 @@ function render(){
   $('#stats').innerHTML = '<div class="stat s1"><i></i><b>' + P.length + '</b><span>Prendas</span></div><div class="stat s2"><i></i><b>' + live + '</b><span>En el catálogo</span></div><div class="stat s3"><i></i><b>' + (P.length - on) + '</b><span>Suspendidas</span></div><div class="stat s4"><i></i><b>' + P.filter(isOut).length + '</b><span>Agotadas</span></div>';
   var hr = new Date().getHours(), sal = hr < 12 ? 'Buenos días' : hr < 19 ? 'Buenas tardes' : 'Buenas noches';
   $('#hDate').textContent = new Date().toLocaleDateString('es-MX', { weekday:'long', day:'numeric', month:'long' });
-  $('#hHello').innerHTML = sal + ', <i>' + esc(cap(data.auth.user)) + '</i>';
+  $('#hHello').innerHTML = sal + ', <i>' + esc(CUR && CUR.name ? CUR.name.split(' ')[0] : cap(data.auth.user)) + '</i>';
   $('#hName').textContent = 'Bienvenida al panel de ' + data.store.name; document.title = 'Panel · ' + data.store.name;
   $('#hMini').innerHTML = '<span><b>' + live + '</b>en catálogo</span><span><b>' + P.filter(isOut).length + '</b>agotadas</span><span><b>' + (P.length - on) + '</b>suspendidas</span>';
   var q = $('#q').value.trim().toLowerCase();
@@ -674,7 +694,17 @@ $('#logoFile').addEventListener('change', function(){ var f = this.files[0]; thi
   resize(f, 700).then(function(u){ var k = 'pending:' + randHex(6); pending[k] = u; data.store.logo = k; saveDraft(); applyLogo(); toast('Logotipo listo. Publica para verlo en línea.'); }); });
 
 // ---------- seguridad ----------
-function fillSec(){ $('#secUser').value = data.auth.user; }
+function fillSec(){ $('#secUser').value = data.auth.user; renderUsers(); }
+function renderUsers(){ var me = CUR ? CUR.user : ''; $('#uList').innerHTML = accounts(data).map(function(a){ return '<li><span class="av">' + esc(a.name.charAt(0).toUpperCase()) + '</span><span class="nm"><b>' + esc(a.name) + '</b><small>Usuario: ' + esc(a.user) + '</small></span>' + (a.owner ? '<span class="tagu">Principal</span>' : '') + (a.user === me ? '<span class="tagu me">Tú</span>' : '') + (!a.owner && a.user !== me ? '<button type="button" class="rmu" data-rmuser="' + esc(a.user) + '">Quitar</button>' : '') + '</li>'; }).join(''); }
+$('#uList').addEventListener('click', function(e){ var b = e.target.closest('[data-rmuser]'); if (!b) return; var u = b.dataset.rmuser;
+  modal('Quitar usuario', '¿Quitar el acceso de "' + u + '"? Ya no podrá entrar al panel cuando publiques.', [ { label:'Quitar', cls:'btn-red', fn:function(){ data.users = (data.users || []).filter(function(x){ return String(x.user).toLowerCase() !== u; }); saveDraft(); renderUsers(); toast('Usuario quitado. Publica para aplicarlo.'); } } ]); });
+$('#uForm').addEventListener('submit', function(e){ e.preventDefault(); var n = $('#uName').value.trim(), u = $('#uUser').value.trim().toLowerCase(), p = $('#uPass').value, err = $('#uErr');
+  if (!n || !u) { err.hidden = false; err.textContent = 'Escribe el nombre y el usuario.'; return; }
+  if (!/^[a-z0-9._-]{3,30}$/.test(u)) { err.hidden = false; err.textContent = 'El usuario debe tener de 3 a 30 letras o números, sin espacios ni acentos.'; return; }
+  if (findAcc(data, u)) { err.hidden = false; err.textContent = 'Ese usuario ya existe.'; return; }
+  if (p.length < 6) { err.hidden = false; err.textContent = 'La contraseña debe tener al menos 6 caracteres.'; return; }
+  err.hidden = true; var salt = randHex(8);
+  sha256(salt + ':' + p).then(function(h){ data.users = (data.users || []).concat([{ user:u, name:n, salt:salt, hash:h }]); $('#uName').value = ''; $('#uUser').value = ''; $('#uPass').value = ''; saveDraft(); renderUsers(); toast('Usuario agregado. Publica para que pueda entrar.'); }); });
 $('#secForm').addEventListener('submit', function(e){ e.preventDefault(); var u = $('#secUser').value.trim().toLowerCase(), p = $('#secPass').value, p2 = $('#secPass2').value, err = $('#secErr');
   if (!u) { err.hidden = false; err.textContent = 'Escribe un usuario.'; return; }
   if (p.length < 8) { err.hidden = false; err.textContent = 'La contraseña debe tener al menos 8 caracteres.'; return; }
