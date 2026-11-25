@@ -1,0 +1,4 @@
+# Netlify publica esta carpeta tal cual (sitio estático, sin compilar).
+[build]
+  publish = "."
+  command = ""
